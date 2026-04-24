@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oddział Specjalny Studios</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800;900&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            transition: background 0.8s ease-in-out;
+            min-height: 100vh;
+            background-size: 400% 400%;
+            background-attachment: fixed;
+            color: #0f172a; /* Ciemniejszy tekst dla lepszej czytelności */
+        }
+
+        .font-nunito {
+            font-family: 'Nunito', sans-serif;
+        }
+
+        /* Ulepszone, bardziej nasycone i kolorowe tła */
+        .bg-rainbow-pastel {
+            background: linear-gradient(-45deg, #ff758c, #ff7eb3, #8fd3f4, #fbc2eb, #d4a5ff);
+            background-size: 400% 400%;
+            animation: gradientBG 12s ease infinite;
+        }
+
+        .bg-goldenkowo {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 50%, #43e97b 100%);
+        }
+
+        .bg-tukanowa {
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 50%, #ff0844 100%);
+        }
+
+        .bg-nikadhd {
+            background: linear-gradient(135deg, #b8c6db 0%, #f5f7fa 0%, #c3cfe2 100%, #e0c3fc 100%);
+            background: linear-gradient(135deg, #c471ed 0%, #f64f59 100%);
+        }
+
+        .bg-despresso {
+            background: linear-gradient(135deg, #cfd9df 0%, #e2ebf0 100%);
+        }
+
+        .bg-zamek {
+            background: linear-gradient(135deg, #a8e063 0%, #56ab2f 50%, #ffafbd 100%);
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Ujednolicony Glassmorphism - Super przejrzysty, ale bardzo czytelny */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85); /* Więcej bieli, żeby tekst był w 100% czytelny */
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 3px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15), inset 0 0 0 1px rgba(255,255,255,0.5);
+            border-radius: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-panel:hover {
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(255,255,255,0.8);
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid rgba(255, 255, 255, 1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Timeline styles - ujednolicone karty */
+        .timeline-container {
+            position: relative;
+        }
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 24px;
+            height: 100%;
+            width: 6px;
+            background: linear-gradient(to bottom, #ff7eb3, #8fd3f4, #fbc2eb);
+            border-radius: 6px;
+        }
+        @media (min-width: 768px) {
+            .timeline-container::before {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        .timeline-dot {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            position: absolute;
+            left: 15px;
+            top: 24px;
+            box-shadow: 0 0 0 6px rgba(255,255,255,1);
+            z-index: 10;
+        }
+        @media (min-width: 768px) {
+            .timeline-dot {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        .timeline-card {
+            background: #ffffff;
+            border: 2px solid #f1f5f9;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .timeline-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            border-color: #cbd5e1;
+        }
+
+        /* Game Button Hover - Bardziej wyraziste przyciski */
+        .game-btn {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+        }
+        .game-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            border: 2px solid rgba(255,255,255,0.8);
+        }
+        
+        .pulse-text {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Typography tweaks */
+        p {
+            line-height: 1.7;
+        }
+    </style>
+</head>
+<body id="main-body" class="bg-rainbow-pastel antialiased overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav class="glass-nav fixed w-full z-50 top-0 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <div class="flex items-center cursor-pointer" onclick="navigateTo('home')">
+                    <span class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 font-nunito tracking-wider drop-shadow-sm">
+                        🌈 O.S. Studios
+                    </span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-3">
+                    <button onclick="navigateTo('home')" class="nav-btn px-5 py-2 rounded-xl font-bold text-slate-700 hover:bg-pink-100 hover:text-pink-600 hover:shadow-md transition">Strona Główna</button>
+                    <button onclick="navigateTo('goldenkowo')" class="nav-btn px-5 py-2 rounded-xl font-bold text-slate-700 hover:bg-teal-100 hover:text-teal-600 hover:shadow-md transition">Goldenkowo</button>
+                    <button onclick="navigateTo('tukanowa')" class="nav-btn px-5 py-2 rounded-xl font-bold text-orange-600 hover:bg-orange-100 hover:shadow-md transition bg-orange-50 shadow-sm border border-orange-200">🦜 Tukanowa Osada</button>
+                    <button onclick="navigateTo('nikadhd')" class="nav-btn px-5 py-2 rounded-xl font-bold text-slate-700 hover:bg-purple-100 hover:text-purple-600 hover:shadow-md transition">Nikadhd-land</button>
+                    <button onclick="navigateTo('despresso')" class="nav-btn px-5 py-2 rounded-xl font-bold text-slate-700 hover:bg-gray-200 hover:text-gray-800 hover:shadow-md transition">Despresso</button>
+                    <button onclick="navigateTo('zamek')" class="nav-btn px-5 py-2 rounded-xl font-bold text-slate-700 hover:bg-green-100 hover:text-green-600 hover:shadow-md transition">Zamek Kariningradu</button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-800 focus:outline-none p-2 bg-white rounded-xl shadow-sm">
+                        <i data-lucide="menu" class="w-8 h-8"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-xl border-t border-gray-200 absolute w-full shadow-2xl">
+            <div class="px-4 pt-4 pb-6 space-y-2">
+                <button onclick="navigateTo('home')" class="block w-full text-left px-4 py-4 rounded-xl text-lg font-black text-slate-800 hover:bg-pink-100 border border-transparent hover:border-pink-300">🏠 Strona Główna</button>
+                <button onclick="navigateTo('goldenkowo')" class="block w-full text-left px-4 py-4 rounded-xl text-lg font-black text-slate-800 hover:bg-teal-100 border border-transparent hover:border-teal-300">✨ Goldenkowo</button>
+                <button onclick="navigateTo('tukanowa')" class="block w-full text-left px-4 py-4 rounded-xl text-lg font-black text-orange-600 bg-orange-50 hover:bg-orange-100 border border-orange-200">🦜 Tukanowa Osada</button>
+                <button onclick="navigateTo('nikadhd')" class="block w-full text-left px-4 py-4 rounded-xl text-lg font-black text-slate-800 hover:bg-purple-100 border border-transparent hover:border-purple-300">🌪️ Nikadhd-land</button>
+                <button onclick="navigateTo('despresso')" class="block w-full text-left px-4 py-4 rounded-xl text-lg font-black text-slate-800 hover:bg-gray-200 border border-transparent hover:border-gray-300">☕ Despresso</button>
+                <button onclick="navigateTo('zamek')" class="block w-full text-left px-4 py-4 rounded-xl text-lg font-black text-slate-800 hover:bg-green-100 border border-transparent hover:border-green-300">🏰 Zamek Kariningradu</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto min-h-screen">
+
+        <!-- ================= PAGE: HOME ================= -->
+        <section id="page-home" class="page-section active flex flex-col items-center">
+            <div class="text-center mb-16 mt-8 animate-fade-in-up">
+                <h1 class="text-6xl md:text-8xl font-black text-white drop-shadow-[0_4px_4px_rgba(0,0,0,0.3)] mb-6 font-nunito tracking-tight">
+                    Witaj w Oddział Specjalny Studios
+                </h1>
+                <p class="text-2xl md:text-3xl font-extrabold text-slate-800 bg-white/80 inline-block px-8 py-3 rounded-2xl shadow-xl border-2 border-white">
+                    Miejsce, gdzie pastelowe sny stają się rzeczywistością! ✨
+                </p>
+            </div>
+
+            <!-- TIMELINE SEZON 3 -->
+            <div class="w-full max-w-5xl glass-panel p-8 md:p-14 mb-12">
+                <div class="text-center mb-16">
+                    <h2 class="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-indigo-600 inline-block drop-shadow-sm font-nunito">
+                        📅 Sezon 3: Harmonogram
+                    </h2>
+                    <p class="text-slate-600 mt-4 font-bold text-xl">Bądź na bieżąco z najważniejszymi wydarzeniami naszej ekipy!</p>
+                </div>
+
+                <div class="timeline-container py-4">
+                    
+                    <!-- Item 1 -->
+                    <div class="relative w-full mb-12 md:flex md:justify-between md:items-center w-full">
+                        <div class="timeline-dot bg-slate-400"></div>
+                        <div class="md:w-5/12 pl-12 md:pl-0 md:pr-10 md:text-right">
+                            <span class="text-sm font-black text-slate-500 uppercase tracking-widest bg-slate-100 px-3 py-1 rounded-lg">Zakończone</span>
+                        </div>
+                        <div class="md:w-5/12 pl-12 md:pl-10 mt-2 md:mt-0">
+                            <div class="timeline-card p-6 rounded-3xl opacity-80 grayscale hover:grayscale-0">
+                                <h3 class="text-2xl font-black text-slate-800 flex items-center gap-3"><i data-lucide="moon" class="w-6 h-6 text-indigo-500"></i> Noc Nika</h3>
+                                <p class="text-slate-600 font-medium mt-2">To już za nami! Ale co to była za noc, pełna wrażeń i niespodzianek.</p>
+                                <div class="mt-4"><span class="px-4 py-2 bg-slate-100 text-slate-600 rounded-xl text-sm font-bold">✓ Odbył się</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="relative w-full mb-12 md:flex md:justify-between md:items-center w-full flex-row-reverse">
+                        <div class="timeline-dot bg-slate-400"></div>
+                        <div class="md:w-5/12 pl-12 md:pl-0 md:pl-10 md:text-left">
+                            <span class="text-sm font-black text-slate-500 uppercase tracking-widest bg-slate-100 px-3 py-1 rounded-lg">Zakończone</span>
+                        </div>
+                        <div class="md:w-5/12 pl-12 md:pl-0 md:pr-10 mt-2 md:mt-0">
+                            <div class="timeline-card p-6 rounded-3xl opacity-80 grayscale hover:grayscale-0 text-left md:text-right">
+                                <h3 class="text-2xl font-black text-slate-800 flex items-center md:justify-end gap-3">Lifetimes Party <i data-lucide="party-popper" class="w-6 h-6 text-pink-500"></i></h3>
+                                <p class="text-slate-600 font-medium mt-2">Najlepsza impreza w historii wszechświata. Kto był, ten wie.</p>
+                                <div class="mt-4"><span class="px-4 py-2 bg-slate-100 text-slate-600 rounded-xl text-sm font-bold">✓ Odbył się</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 (NOW!) -->
+                    <div class="relative w-full mb-12 md:flex md:justify-between md:items-center w-full">
+                        <div class="timeline-dot bg-pink-500 animate-pulse shadow-[0_0_20px_rgba(236,72,153,0.9)]"></div>
+                        <div class="md:w-5/12 pl-12 md:pl-0 md:pr-10 md:text-right">
+                            <span class="text-base font-black text-white bg-pink-600 px-4 py-1 rounded-xl uppercase tracking-widest pulse-text inline-block shadow-lg border border-pink-400">🔥 TERAZ! 🔥</span>
+                        </div>
+                        <div class="md:w-5/12 pl-12 md:pl-10 mt-2 md:mt-0">
+                            <div class="timeline-card p-8 rounded-3xl border-4 border-pink-400 transform scale-105 bg-gradient-to-br from-white to-pink-50 shadow-2xl">
+                                <h3 class="text-3xl font-black text-pink-700 flex items-center gap-3"><i data-lucide="flame" class="w-8 h-8 text-red-500"></i> Szonowy szczyt</h3>
+                                <p class="text-slate-800 text-lg mt-3 font-bold">Dzieje się właśnie w tym momencie! Wskakuj na pokład, bo grzejemy na pełnej! To jest absolutny peak Sezonu 3.</p>
+                                <div class="mt-5"><span class="px-5 py-2 bg-pink-500 text-white rounded-xl text-sm font-black shadow-md">W Trakcie!</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="relative w-full mb-12 md:flex md:justify-between md:items-center w-full flex-row-reverse">
+                        <div class="timeline-dot bg-blue-500"></div>
+                        <div class="md:w-5/12 pl-12 md:pl-0 md:pl-10 md:text-left">
+                            <span class="text-sm font-black text-blue-600 uppercase tracking-widest bg-blue-100 px-3 py-1 rounded-lg">Maj-Czerwiec</span>
+                        </div>
+                        <div class="md:w-5/12 pl-12 md:pl-0 md:pr-10 mt-2 md:mt-0">
+                            <div class="timeline-card p-6 rounded-3xl border-2 border-blue-200 text-left md:text-right">
+                                <h3 class="text-2xl font-black text-slate-800 flex items-center md:justify-end gap-3">ADHD club <i data-lucide="zap" class="w-6 h-6 text-yellow-500 fill-yellow-500"></i></h3>
+                                <p class="text-slate-600 font-medium mt-2">Przygotujcie się na chaos, energię i zero skupienia. Będzie głośno, szybko i kolorowo.</p>
+                                <div class="mt-4"><span class="px-4 py-2 bg-blue-50 text-blue-700 rounded-xl text-sm font-bold border border-blue-200">Wkrótce</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="relative w-full mb-12 md:flex md:justify-between md:items-center w-full">
+                        <div class="timeline-dot bg-amber-500"></div>
+                        <div class="md:w-5/12 pl-12 md:pl-0 md:pr-10 md:text-right">
+                            <span class="text-sm font-black text-amber-600 uppercase tracking-widest bg-amber-100 px-3 py-1 rounded-lg">Maj-Czerwiec</span>
+                        </div>
+                        <div class="md:w-5/12 pl-12 md:pl-10 mt-2 md:mt-0">
+                            <div class="timeline-card p-6 rounded-3xl border-2 border-amber-200">
+                                <h3 class="text-2xl font-black text-slate-800 flex items-center gap-3"><i data-lucide="coffee" class="w-6 h-6 text-amber-700"></i> Espresso Bingo</h3>
+                                <p class="text-slate-600 font-medium mt-2">Dużo kofeiny i losowe numery. Zawał serca gwarantowany, nagrody prawdopodobne!</p>
+                                <div class="mt-4"><span class="px-4 py-2 bg-amber-50 text-amber-700 rounded-xl text-sm font-bold border border-amber-200">Wkrótce</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 6 (More) -->
+                    <div class="relative w-full md:flex md:justify-center md:items-center w-full mt-12">
+                        <div class="bg-white px-10 py-5 rounded-2xl shadow-xl border-2 border-purple-300 text-center relative z-10 animate-bounce">
+                            <span class="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500">
+                                ... i WIELE, WIELE WIĘCEJ! ✨
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PLACEHOLDER PAGES ================= -->
+        <template id="coming-soon-template">
+            <div class="flex flex-col items-center justify-center min-h-[65vh]">
+                <div class="glass-panel p-16 rounded-[3rem] text-center max-w-3xl transform transition hover:scale-105 duration-500">
+                    <h2 class="page-title text-6xl md:text-7xl font-black text-slate-800 font-nunito mb-8 drop-shadow-sm">Nazwa Strony</h2>
+                    <div class="text-9xl mb-10 animate-bounce page-icon drop-shadow-xl">🚧</div>
+                    <div class="bg-gradient-to-r from-white to-gray-50 p-6 rounded-2xl shadow-inner border border-gray-200 inline-block">
+                        <p class="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-purple-600">
+                            Już niebawem będzie tu zawartość! 💖
+                        </p>
+                    </div>
+                    <p class="text-slate-600 mt-8 text-xl font-bold">Ekipa budowlana Oddziału Specjalnego wciąga właśnie węgle (i pije kawkę), ale niedługo wracają do pracy. Bądź w gotowości!</p>
+                </div>
+            </div>
+        </template>
+
+        <section id="page-goldenkowo" class="page-section hidden"></section>
+        <section id="page-nikadhd" class="page-section hidden"></section>
+        <section id="page-despresso" class="page-section hidden"></section>
+        <section id="page-zamek" class="page-section hidden"></section>
+
+
+        <!-- ================= PAGE: TUKANOWA OSADA (THE MASTERPIECE) ================= -->
+        <section id="page-tukanowa" class="page-section hidden">
+            
+            <!-- Hero Tukanowa -->
+            <div class="text-center mb-16 mt-8">
+                <h1 class="text-6xl md:text-9xl font-black text-white drop-shadow-[0_8px_8px_rgba(255,100,100,0.9)] font-nunito tracking-tighter uppercase mb-6 relative">
+                    <span class="absolute -top-10 -left-10 text-8xl animate-spin" style="animation-duration: 15s;">🌴</span>
+                    🦜 Tukanowa Osada
+                    <span class="absolute -bottom-10 -right-10 text-8xl animate-bounce" style="animation-duration: 3s;">🥥</span>
+                </h1>
+                <p class="text-2xl md:text-4xl font-black text-orange-900 bg-white/90 inline-block px-10 py-4 rounded-3xl shadow-2xl border-4 border-orange-300 backdrop-blur-sm mt-4">
+                    Stolica absurdu, grubego melanżu i zajebistości! ✨
+                </p>
+            </div>
+
+            <!-- THE GAME: MANGO'S JOURNEY (UNCENSORED & INSANE) -->
+            <div class="w-full max-w-6xl mx-auto glass-panel p-8 md:p-14 shadow-2xl mb-24 border-4 border-orange-400 relative overflow-hidden bg-white/95">
+                <div class="absolute top-0 left-0 w-full h-6 bg-gradient-to-r from-pink-500 via-yellow-400 via-green-400 to-purple-600"></div>
+                
+                <div class="flex flex-col items-center gap-4 mb-10 justify-center">
+                    <div class="flex items-center gap-6">
+                        <span class="text-6xl animate-pulse">🥭</span>
+                        <h2 class="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-red-500 to-pink-600 font-nunito text-center leading-tight">
+                            Droga Mango: Gejowski Sen,<br>Patola i Marakuja
+                        </h2>
+                        <span class="text-6xl animate-pulse">🍾</span>
+                    </div>
+                    <div class="bg-red-100 border-l-8 border-red-500 p-4 rounded-r-xl shadow-sm mt-6 w-full max-w-4xl text-center">
+                        <p class="text-red-800 font-black text-xl uppercase">⚠️ Ostrzeżenie ⚠️</p>
+                        <p class="text-red-700 font-bold mt-1">Ta gra jest całkowicie pojebana, bez cenzury i pełna absurdów. Występują Żule, Godlewskie, rzucanie mięsem i zmiana płci przez traumę akustyczną. Grasz na własną odpowiedzialność!</p>
+                    </div>
+                </div>
+                
+                <!-- Game Container -->
+                <div id="game-container" class="bg-slate-50 rounded-[2.5rem] p-8 md:p-12 shadow-[inset_0_0_40px_rgba(0,0,0,0.05)] min-h-[500px] flex flex-col justify-between border-2 border-slate-200 transition-all duration-300">
+                    
+                    <div id="game-image" class="text-9xl text-center mb-8 animate-bounce drop-shadow-xl">🥭</div>
+                    
+                    <div id="game-text" class="text-2xl md:text-3xl text-slate-800 font-bold leading-relaxed mb-12 text-center bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+                        Ładowanie chorej historii...
+                    </div>
+
+                    <div id="game-choices" class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-auto">
+                        <!-- Buttons will be injected here via JS -->
+                    </div>
+
+                </div>
+                
+                <!-- Game Progress indicator -->
+                <div class="mt-8 flex justify-between items-center text-lg font-black text-orange-800 px-6 bg-orange-100 py-3 rounded-xl border border-orange-200">
+                    <span>Odkryte zakończenia: <span id="game-endings" class="text-2xl">0</span></span>
+                    <span>Scena: <span id="game-scene-id" class="text-2xl">1</span></span>
+                </div>
+            </div>
+
+
+            <!-- LESBIAN NOTE & DAILY ROUTINE (Two columns) -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto mb-24">
+                
+                <!-- Note -->
+                <div class="glass-panel p-10 flex flex-col justify-center items-center text-center border-4 border-pink-300">
+                    <div class="text-7xl mb-8 animate-pulse">👩‍❤️‍💋‍👩 🏳️‍🌈</div>
+                    <h3 class="text-4xl font-black text-pink-600 mb-8 font-nunito uppercase tracking-wider">Najlepsze doznanie świata</h3>
+                    <div class="bg-pink-50 rounded-3xl p-8 border-l-[12px] border-pink-500 shadow-inner relative">
+                        <div class="absolute -top-4 -left-4 text-4xl">✨</div>
+                        <p class="text-2xl text-slate-800 font-black leading-relaxed italic">
+                            "Oficjalny komunikat zarządu Tukanowej Osady: Bycie lesbijką to absolutnie, obiektywnie, kurwa mać, najlepsze na świecie doznanie. Koniec przekazu. Można się rozejść i kochać dziewczyny."
+                        </p>
+                    </div>
+                    <p class="mt-8 text-pink-600 font-black text-xl">~ Tukan Barbie (Zarząd ds. Prawdy Objawionej)</p>
+                </div>
+
+                <!-- Routine -->
+                <div class="glass-panel p-10 border-4 border-yellow-300">
+                    <h3 class="text-4xl font-black text-orange-600 mb-8 font-nunito flex items-center justify-center gap-4 text-center">
+                        <i data-lucide="sparkles" class="text-yellow-500 w-10 h-10"></i> Idealna Rutyna Królowej
+                    </h3>
+                    <ul class="space-y-5">
+                        <li class="flex items-center gap-6 bg-white p-4 rounded-2xl shadow-sm border border-slate-100 hover:scale-105 transition-transform">
+                            <span class="text-4xl bg-orange-100 p-3 rounded-xl">🎨</span>
+                            <div>
+                                <h4 class="font-black text-slate-800 text-xl">Ultra Kolorowa Paletka Cieni</h4>
+                                <p class="text-base text-slate-600 font-medium">Bo oczy muszą błyszczeć mocniej niż przyszłość twoich wrogów.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-6 bg-white p-4 rounded-2xl shadow-sm border border-slate-100 hover:scale-105 transition-transform">
+                            <span class="text-4xl bg-blue-100 p-3 rounded-xl">💧</span>
+                            <div>
+                                <h4 class="font-black text-slate-800 text-xl">Płyn Mineralny</h4>
+                                <p class="text-base text-slate-600 font-medium">Idealny, by oczyścić się z toksycznych ludzi i patostreamerów.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-6 bg-white p-4 rounded-2xl shadow-sm border border-slate-100 hover:scale-105 transition-transform">
+                            <span class="text-4xl bg-pink-100 p-3 rounded-xl">🍬</span>
+                            <div>
+                                <h4 class="font-black text-slate-800 text-xl">Ultra Słodkie Żelki</h4>
+                                <p class="text-base text-slate-600 font-medium">Fundament zdrowej, jebniętej piramidy żywieniowej Królowej.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-6 bg-white p-4 rounded-2xl shadow-sm border border-slate-100 hover:scale-105 transition-transform">
+                            <span class="text-4xl bg-purple-100 p-3 rounded-xl">🌸</span>
+                            <div>
+                                <h4 class="font-black text-slate-800 text-xl">Słodko Pachnący Dezodorant</h4>
+                                <p class="text-base text-slate-600 font-medium">Aby aura wokół ciebie nokautowała zapachem zwycięstwa.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-6 bg-white p-4 rounded-2xl shadow-sm border border-slate-100 hover:scale-105 transition-transform">
+                            <span class="text-4xl bg-cyan-100 p-3 rounded-xl">☁️</span>
+                            <div>
+                                <h4 class="font-black text-slate-800 text-xl">Płyn jak Chmurka</h4>
+                                <p class="text-base text-slate-600 font-medium">Kąpiel o smaku pianek słodkich jak alpaka (nie pytaj, po prostu testuj).</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-6 bg-white p-4 rounded-2xl shadow-sm border border-slate-100 hover:scale-105 transition-transform">
+                            <span class="text-4xl bg-red-100 p-3 rounded-xl">🍉</span>
+                            <div>
+                                <h4 class="font-black text-slate-800 text-xl">Maseczki Owocowe i Zajebistość</h4>
+                                <p class="text-base text-slate-600 font-medium">Nakładasz, leżysz i wchłaniasz 100% czystej zajebistości w pory skóry.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- TUKAN BARBIE INCARNATIONS (Grid) -->
+            <div class="max-w-7xl mx-auto mb-24">
+                <div class="text-center mb-14 glass-panel p-8 max-w-4xl mx-auto border-4 border-yellow-400">
+                    <h2 class="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 font-nunito drop-shadow-sm uppercase">
+                        👑 Epickie Wcielenia<br>Tukan Barbie
+                    </h2>
+                    <p class="text-2xl text-slate-800 mt-6 font-black">Królowa królestwa tukanów i szopów nie wzięła się znikąd. Rządzi tym pierdolnikiem od 2500 p.n.e. aż do teraz.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+                    <!-- Cards -->
+                    <div class="glass-panel p-8 border-t-8 border-yellow-400 hover:-translate-y-4 group cursor-default">
+                        <div class="text-7xl mb-6 group-hover:animate-bounce drop-shadow-md">🏜️</div>
+                        <h4 class="text-2xl font-black text-slate-800 uppercase bg-yellow-100 inline-block px-3 py-1 rounded-lg mb-4">2500 p.n.e.<br><span class="text-yellow-600">Faraonka</span></h4>
+                        <p class="text-slate-600 text-base font-bold">To ona zbudowała piramidy jako wielkie karmniki dla starożytnych szopów praczów. Sfinks początkowo miał dziób, ale odpadł z zazdrości o jej blask.</p>
+                    </div>
+
+                    <div class="glass-panel p-8 border-t-8 border-blue-400 hover:-translate-y-4 group cursor-default">
+                        <div class="text-7xl mb-6 group-hover:animate-bounce drop-shadow-md">🏛️</div>
+                        <h4 class="text-2xl font-black text-slate-800 uppercase bg-blue-100 inline-block px-3 py-1 rounded-lg mb-4">1200 p.n.e.<br><span class="text-blue-600">Bogini Grecka</span></h4>
+                        <p class="text-slate-600 text-base font-bold">Afrodyta? Bitch please. Tukan Barbie była boginią soczystych owoców, pięknych piór i napierdalania piorunami w homofobów ze szczytu Olimpu.</p>
+                    </div>
+
+                    <div class="glass-panel p-8 border-t-8 border-red-400 hover:-translate-y-4 group cursor-default">
+                        <div class="text-7xl mb-6 group-hover:animate-bounce drop-shadow-md">🍷</div>
+                        <h4 class="text-2xl font-black text-slate-800 uppercase bg-red-100 inline-block px-3 py-1 rounded-lg mb-4">40 n.e.<br><span class="text-red-600">Cesarz Rzymu</span></h4>
+                        <p class="text-slate-600 text-base font-bold">Za jej czasów Koloseum służyło wyłącznie do walk na poduszki i wielkich orgii w pianie. Imperium upadło, bo przejebali cały budżet na brokat do zbroi.</p>
+                    </div>
+
+                    <div class="glass-panel p-8 border-t-8 border-pink-400 hover:-translate-y-4 group cursor-default">
+                        <div class="text-7xl mb-6 group-hover:animate-bounce drop-shadow-md">🥐</div>
+                        <h4 class="text-2xl font-black text-slate-800 uppercase bg-pink-100 inline-block px-3 py-1 rounded-lg mb-4">1780<br><span class="text-pink-600">Królowa Francji</span></h4>
+                        <p class="text-slate-600 text-base font-bold">"Nie mają chleba? Niech wcinają żelki i popijają mineralnym płynem micelarnym!" Zrobiła z Wersalu najgrubszą domówkę w historii Europy.</p>
+                    </div>
+
+                    <div class="glass-panel p-8 border-t-8 border-slate-400 hover:-translate-y-4 group cursor-default">
+                        <div class="text-7xl mb-6 group-hover:animate-bounce drop-shadow-md">👑</div>
+                        <h4 class="text-2xl font-black text-slate-800 uppercase bg-slate-200 inline-block px-3 py-1 rounded-lg mb-4">1850<br><span class="text-slate-700">Królowa Rosji</span></h4>
+                        <p class="text-slate-600 text-base font-bold">Zamiast srogich zim, wprowadziła nakaz noszenia kolorowych, puchatych futerek ze sztucznego włosia. Syberię podbiła samym uśmiechem i wódą z marakują.</p>
+                    </div>
+
+                    <div class="glass-panel p-8 border-t-8 border-purple-400 hover:-translate-y-4 group cursor-default">
+                        <div class="text-7xl mb-6 group-hover:animate-bounce drop-shadow-md">🌸</div>
+                        <h4 class="text-2xl font-black text-slate-800 uppercase bg-purple-100 inline-block px-3 py-1 rounded-lg mb-4">1900<br><span class="text-purple-600">Cesarz Japonii</span></h4>
+                        <p class="text-slate-600 text-base font-bold">Własnoręcznie wynalazła Anime, żeby móc rysować wszystkim wielkie, błyszczące oczy. Samuraje musieli biegać z różowymi katanami wysadzanymi cekinami.</p>
+                    </div>
+
+                    <div class="glass-panel p-8 border-t-8 border-green-400 hover:-translate-y-4 group cursor-default">
+                        <div class="text-7xl mb-6 group-hover:animate-bounce drop-shadow-md">🦁</div>
+                        <h4 class="text-2xl font-black text-slate-800 uppercase bg-green-100 inline-block px-3 py-1 rounded-lg mb-4">1980<br><span class="text-green-600">Władczyni Afryki</span></h4>
+                        <p class="text-slate-600 text-base font-bold">Zjednoczyła kontynent ucząc lwy i zebry układów tanecznych do muzyki disco z lat 80. Cała sawanna jebała stroboskopem i lśniła w świetle kul dyskotekowych.</p>
+                    </div>
+
+                    <div class="glass-panel p-8 border-4 border-orange-500 hover:-translate-y-4 group cursor-default transform md:-rotate-2 bg-gradient-to-b from-white to-orange-50 shadow-[0_20px_50px_rgba(249,115,22,0.3)]">
+                        <div class="text-7xl mb-6 group-hover:animate-spin drop-shadow-md">✨</div>
+                        <h4 class="text-2xl font-black text-slate-800 uppercase bg-orange-500 text-white inline-block px-4 py-2 rounded-xl mb-4 shadow-md">TERAZ<br>Bogini O.S.</h4>
+                        <p class="text-slate-800 text-lg font-black leading-snug">Włada królestwem Tukanów, szopów, wstawia choro zajebiste relacje, robi najlepszy skin-care i sprawia, że ten kurwidołek zwany Ziemią jest lepszy (i bardziej gejowski).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EXTRA FROM ME: Magic Fortune Teller -->
+            <div class="max-w-4xl mx-auto glass-panel p-12 text-center border-4 border-indigo-400 relative overflow-hidden bg-white/95 shadow-[0_30px_60px_rgba(99,102,241,0.2)]">
+                <div class="absolute -top-20 -right-20 text-[12rem] opacity-10 animate-spin" style="animation-duration: 30s;">🔮</div>
+                <h3 class="text-4xl font-black text-indigo-700 mb-6 font-nunito relative z-10 drop-shadow-sm">Magiczna Kula Tukanowego Przeznaczenia</h3>
+                <p class="text-slate-700 font-bold text-xl mb-10 relative z-10">Zastanawiasz się jaki masz dziś vibe? Kliknij poniżej, by poznać jedyną, obiektywną prawdę objawioną.</p>
+                <button onclick="generateFortune()" class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-black text-2xl px-10 py-5 rounded-2xl shadow-[0_10px_30px_rgba(99,102,241,0.5)] hover:shadow-[0_20px_40px_rgba(99,102,241,0.7)] hover:scale-105 transition duration-300 relative z-10 flex items-center gap-4 mx-auto border-2 border-white">
+                    <span>Odkryj Przeznaczenie</span> <i data-lucide="sparkles" class="w-8 h-8"></i>
+                </button>
+                <div id="fortune-result" class="mt-10 text-3xl font-black text-purple-800 min-h-[5rem] hidden bg-purple-50 p-8 rounded-3xl border-4 border-purple-200 shadow-inner">
+                    <!-- Result here -->
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="glass-nav py-8 text-center mt-auto">
+        <p class="text-slate-800 font-black text-lg">© 2026 Oddział Specjalny Studios. Wygenerowane z absurdalną dawką zajebistości. 🌈🍹</p>
+    </footer>
+
+    <!-- LOGIC (Navigation & CYOA Game) -->
+    <script>
+        // --- LUCIDE ICONS INIT ---
+        lucide.createIcons();
+
+        // --- NAVIGATION LOGIC ---
+        const pages = {
+            'home': { id: 'page-home', bgClass: 'bg-rainbow-pastel' },
+            'goldenkowo': { id: 'page-goldenkowo', bgClass: 'bg-goldenkowo', title: 'Goldenkowo', icon: '✨' },
+            'tukanowa': { id: 'page-tukanowa', bgClass: 'bg-tukanowa' },
+            'nikadhd': { id: 'page-nikadhd', bgClass: 'bg-nikadhd', title: 'Nikadhd-land', icon: '🌪️' },
+            'despresso': { id: 'page-despresso', bgClass: 'bg-despresso', title: 'Despresso', icon: '☕' },
+            'zamek': { id: 'page-zamek', bgClass: 'bg-zamek', title: 'Zamek Kariningradu', icon: '🏰' }
+        };
+
+        const body = document.getElementById('main-body');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Initialize placeholder pages with new UI styling
+        const template = document.getElementById('coming-soon-template').innerHTML;
+        ['goldenkowo', 'nikadhd', 'despresso', 'zamek'].forEach(page => {
+            const el = document.getElementById(`page-${page}`);
+            el.innerHTML = template;
+            el.querySelector('.page-title').textContent = pages[page].title;
+            el.querySelector('.page-icon').textContent = pages[page].icon;
+        });
+
+        function navigateTo(pageKey) {
+            document.querySelectorAll('.page-section').forEach(el => {
+                el.classList.add('hidden');
+                el.classList.remove('active');
+            });
+
+            const target = document.getElementById(pages[pageKey].id);
+            target.classList.remove('hidden');
+            setTimeout(() => target.classList.add('active'), 50);
+
+            body.className = `antialiased overflow-x-hidden ${pages[pageKey].bgClass}`;
+
+            mobileMenu.classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+
+        // --- FORTUNE LOGIC ---
+        const fortunes = [
+            "Jesteś dziś jak słodkie żelki - wszyscy cię pragną, a dentysta płacze! 🍬",
+            "Twój poziom zajebistości wyjebał poza skalę. Gratulacje, wygrywasz życie! ✨",
+            "Wyślij dziś uśmiech ładnej dziewczynie. Wszechświat i tutejszy Zarząd to doceni! 👩‍❤️‍💋‍👩",
+            "Twoja energia jest dziś jak piankowy płyn - mięciutka, ale jak trzeba, to w chuj szczypie w oczy! ☁️",
+            "Nawet jeśli czujesz się dziś jak zdeptane Mango, jutro możesz być kurwa platynową Marakują! 🥭➡️🍑",
+            "Ignoruj hejterów tak, jak Tukan ignoruje grawitację swoim wielkim, majestatycznym dziobem! 🦜",
+            "Załóż maseczkę na pysk, włącz muzykę i miej absolutnie wyjebane na patologię tego świata! 🍉"
+        ];
+
+        function generateFortune() {
+            const resDiv = document.getElementById('fortune-result');
+            resDiv.classList.remove('hidden');
+            resDiv.innerHTML = '<span class="animate-pulse text-indigo-500">🔮 Skanowanie jebniętej aury szopa... 🦝</span>';
+            
+            setTimeout(() => {
+                const random = fortunes[Math.floor(Math.random() * fortunes.length)];
+                resDiv.innerHTML = random;
+                resDiv.classList.add('animate-fade-in-up');
+            }, 1000);
+        }
+
+
+        // --- THE EPIC CYOA GAME: MANGO'S JOURNEY (EXPANDED & UNCENSORED VERSION) ---
+        // 36 Scenes of pure madness.
+        
+        const gameData = {
+            1: {
+                text: "Budzisz się w plastikowej, chujowej siatce z Biedry. Jesteś cudownym, idealnie dojrzałym Owocem Mango. Masz w sobie potężną, gejowską energię i pragniesz zasiać swoje tęczowe nasienie. Nagle siatka pierdolnęła o brudny blat. Twoją 'właścicielką' okazuje się naczelna patostreamerka - Ela Gawin!",
+                image: "🥭",
+                choices: [
+                    { text: "Przemów do niej: 'Witaj Elu, jestem w chuj dumnym gej-mango!'", next: 2 },
+                    { text: "Siedź cicho na dupie, może nie zauważy.", next: 3 },
+                    { text: "Próbuj wykurwiać ze stołu.", next: 4 }
+                ]
+            },
+            2: { // DEATH
+                text: "Krzyczysz 'Jestem gejem!'. Ela łapie potężnego laga mózgu, po czym dostaje szału. Odpala live'a, drze pizde o spiskach iluminatów i z dzikim wrzaskiem wpierdala cię do blendera razem z naklejką i pestką. Zostajesz zmielony na obrzydliwe, patologiczne smoothie. KONIEC.",
+                image: "💀",
+                choices: [ { text: "Zagraj od nowa i nie bądź dzbanem.", next: 1 } ]
+            },
+            3: {
+                text: "Siedzisz cicho. Ela odpala streama. Przez bite cztery godziny drze ryja na czat, tankując harnasie z energetykiem. Nagle łapie cię w swoje szpony. 'Zrobimy kurwa Mango-Challenge!' - drze się. Chce cię zajebać o ścianę na 100 łapek w górę.",
+                image: "📹",
+                choices: [
+                    { text: "Czekaj jak debil na wyrok.", next: 5 },
+                    { text: "Wykorzystaj swój owocowy śluz i wyślizgnij się jej przy zamachu!", next: 6 }
+                ]
+            },
+            4: {
+                text: "Wyturlujesz się i z hukiem padasz na ujebaną podłogę. Ela jest zbyt pochłonięta wyzywaniem widzów, żeby to ogarnąć. Obok śmietnika leży... uśpiony szop pracz po srogim melanżu.",
+                image: "🦝",
+                choices: [
+                    { text: "Ugryź szopa w ogon na przebudzenie.", next: 7 },
+                    { text: "Olej pijaka i spierdalaj przez szparę w drzwiach.", next: 8 }
+                ]
+            },
+            5: { // DEATH
+                text: "Wbija 100 łapek. Ela robi potężny zamach jak na rzucie młotem. Rozpierdalasz się o brudną tapetę na tysiąc kawałków. Twój sok wnika w grzyb na ścianie. Absolutnie żałosny koniec królewskiego owocu. KONIEC.",
+                image: "💥",
+                choices: [ { text: "Zacznij od nowa, tym razem walcz!", next: 1 } ]
+            },
+            6: {
+                text: "Ela robi zamach, a ty spinasz całą swoją mango-mosznę i wystrzeliwujesz jej z łap! Wykurwiasz przez otwarte okno z siódmego piętra wprost w warszawski smog! Lecisz i lecisz...",
+                image: "🪂",
+                choices: [
+                    { text: "Wyceluj w podejrzanie wyglądający krzak.", next: 9 },
+                    { text: "Módl się do Najwyższego Gej-Owocu o ratunek.", next: 10 }
+                ]
+            },
+            7: { // DEATH
+                text: "Próbujesz go ugryźć, ale przypominasz sobie, że jesteś jebanym owocem i nie masz zębów. Szop budzi się na kacu, stwierdza 'o, zajebista szama' i wpierdala cię na dwa gryzy. Jesteś gównem szopa. KONIEC.",
+                image: "💩",
+                choices: [ { text: "Restart życia.", next: 1 } ]
+            },
+            8: {
+                text: "Wytaczasz się na klatkę. Nagle podnosi cię ręka w tandetnych, sztucznych paznokciach z Action. Słyszysz skrzeczący, narcystyczny głos: 'O rany, jaki ekskluzywny dar!'. To Izabela Kisio Skorupa we własnej osobie!",
+                image: "💅",
+                choices: [
+                    { text: "Daj się wziąć, lepsza Kisio niż patola z mieszkania.", next: 11 },
+                    { text: "Krzyknij: 'Zostaw mnie kobieto bez honoru!'", next: 12 }
+                ]
+            },
+            9: {
+                text: "Celujesz w krzak, ale wiatr (i zapach tanich fajek) znosi cię prosto w ramiona przechodzącej tamtędy Izabeli Kisio Skorupy. 'Jaki cudowny dar z delikatesów premium!' - kwiczy i wpierdala cię do podjebanej torebki Gucciego.",
+                image: "👜",
+                choices: [
+                    { text: "Siedź w torebce pełnej starych paragonów.", next: 11 }
+                ]
+            },
+            10: {
+                text: "Z nieba spada ratunek. Lądujesz z miękkim plaskiem na wielkim, dziwacznym kapeluszu. Jego właścicielka go zdejmuje. To Izabela Kisio Skorupa. 'Ooo, darmowa kolacyjka dla gwiazdy!'",
+                image: "🎩",
+                choices: [
+                    { text: "Poddaj się przeznaczeniu gwiazd.", next: 11 }
+                ]
+            },
+            11: {
+                text: "Trafiasz do squatu (znaczy... luksusowego apartamentu) Kisio. Zaczyna do ciebie gadać jak do kumpla. 'Widzisz mango, nikt nie docenia mojego wybitnego aktorstwa!'. Nagle puka się w czoło. 'A może cię kurwa sprzedam i kupię harnasia?'",
+                image: "🎬",
+                choices: [
+                    { text: "Spróbuj telepatii: 'Zasadź mnie, głupia krowo'.", next: 13 },
+                    { text: "Sprowokuj ją, żeby wyrzuciła cię przez okno na przystanek.", next: 14 }
+                ]
+            },
+            12: { // DEATH
+                text: "Kisio się oburza. 'Takie chamstwo do legendy polskiego kina?!' Wrzeszczy i wykurwia cię prosto do otwartej studzienki. Rozbijasz się na łbie szczura-mutanta. KONIEC.",
+                image: "🐀",
+                choices: [ { text: "Wróć i zachowaj mordę na kłódkę.", next: 1 } ]
+            },
+            13: {
+                text: "Próbujesz telepatii. Kisio łapie się za głowę: 'O boże, czuję to! To mango to rekwizyt z Hollywood! Zaniosę je do Lombardu, będą miliony!' Ech, spierdoliłeś.",
+                image: "🧠",
+                choices: [
+                    { text: "Idź potulnie do Lombardu.", next: 15 }
+                ]
+            },
+            14: {
+                text: "Zaczynasz potwornie jebać zgniłym żulem. Kisio zatyka nos. 'Fuj! Plebs!' Otwiera okno i rzuca tobą z całej siły. Lądujesz prosto na dachu autobusu linii 114, jadącego do Wrocławia, dzielnica Brochów.",
+                image: "🚌",
+                choices: [
+                    { text: "Trzymaj się pestki, jedziemy na wschód!", next: 16 }
+                ]
+            },
+            15: {
+                text: "Kisio wbija do zadymionego Lombardu. 'To mango grało z De Niro!' - krzyczy. Janusz za ladą proponuje jej 2,50 zł. Kisio bierze hajs i ucieka zadowolona na kebsa. Zostajesz z Januszem.",
+                image: "🏪",
+                choices: [
+                    { text: "Odpal Magiczną Aurę Lombardu (wymaga max energii).", next: 23 },
+                    { text: "Zatocz się błagalnie po blacie.", next: 24 }
+                ]
+            },
+            16: {
+                text: "Podróż autobusem trwała wieki. Spadasz z dachu prosto w krzaki obok Żabki na Brochowie. Nad tobą pochylają się dwie legendarne lokalne persony: Żul Marian i jego kumpel Śruba. Jebią fuzlem i tanim tytoniem.",
+                image: "🍺",
+                choices: [
+                    { text: "Leż martwym bykiem.", next: 17 },
+                    { text: "Zabłyśnij gejowskim blaskiem w ciemności.", next: 18 }
+                ]
+            },
+            17: {
+                text: "Śruba podnosi cię. 'Ty, Marian, patrz. Jakie mutant-jabłko z Czarnobyla. Zrobimy z tego takiego jabola, że nam wątroby bokiem wyjdą!' Marian przytakuje. Wrzucają cię do ujebanego wiadra na fermentację.",
+                image: "🪣",
+                choices: [
+                    { text: "Poddaj się bolesnej fermentacji (ryzykowne).", next: 19 },
+                    { text: "Drzyj ryja, żeby ich wystraszyć.", next: 20 }
+                ]
+            },
+            18: {
+                text: "Zaczynasz świecić na tęczowo. Żule łapią fazę. 'O kurwa, Marian, to ufo-owoc. Kosmici z Brochowa!' Zamiast robić z ciebie wino, postanawiają cię czcić jak bóstwo przed Żabką. Kładą cię na skrzynce po piwie.",
+                image: "👽",
+                choices: [
+                    { text: "Przyjmuj dary z petów i kapsli.", next: 21 }
+                ]
+            },
+            19: {
+                text: "Tkwisz w wiadrze z cukrem i śliną Mariana. Cierpisz jak skurwysyn, ale wchłaniasz czystą, wrocławską energię uliczną. Nagle mutujesz. Stajesz się Turbo-Alko-Mango, odpornym na wszystko owocem destrukcji. Wybijasz pokrywkę wiadra z hukiem!",
+                image: "💥",
+                choices: [
+                    { text: "Wyskocz jako nowy byt!", next: 21 }
+                ]
+            },
+            20: { // DEATH
+                text: "Zaczynasz piszczeć. Śruba wpada w panikę: 'Kurwa, policyjna pluskwa!'. Rozpierdalają cię pustą butelką po Harnasiu na drobną papkę. Ziemia wrocławska przyjęła twój sok. KONIEC.",
+                image: "🍾",
+                choices: [ { text: "Zmartwychwstań i graj mądrzej.", next: 1 } ]
+            },
+            21: {
+                text: "Jesteś na Brochowie (czy to w wiadrze, czy na skrzynce), kiedy z piskiem opon zajeżdża różowy Maluch. Wychodzą z niego... SIOSTRY GODLEWSKIE! 'O my gad, to idealny rekwizyt do naszego świątecznego hitu!' - piszczy jedna i porywa cię od Żuli.",
+                image: "🚗",
+                choices: [
+                    { text: "O nie... szykuj się na ból uszu.", next: 22 }
+                ]
+            },
+            22: {
+                text: "Godlewskie stawiają cię na masce auta i ZACZYNAJĄ ŚPIEWAĆ a capella. Fałszują tak potwornie, w tak wysokich rejestrach patologii akustycznej, że twoje mango-DNA nie wytrzymuje. Twoja skórka pęka. Twoja tożsamość imploduje. Z bólu i szoku... ZMIENIASZ PŁEĆ! Stajesz się fioletową, tętniącą życiem, soczystą MARAKUJĄ!",
+                image: "😱",
+                choices: [
+                    { text: "O kurwa. Przejrzyj się w lusterku Malucha.", next: 26 },
+                    { text: "Wytocz się im z rąk na ulicę.", next: 27 }
+                ]
+            },
+            23: {
+                text: "W Lombardzie u Janusza, skupiasz całą złą energię kradzionych wiertarek i rowerów. Błysk flesza! Lombardowa moc zmienia twoją biologię! Przestajesz być Mango-facetem. Stajesz się zmysłową, ociekającą seksem Marakują (Ona)!",
+                image: "✨",
+                choices: [
+                    { text: "Pachnij zwycięstwem i wkurwieniem.", next: 25 }
+                ]
+            },
+            24: { // DEATH
+                text: "Toczysz się i zrzucasz z lady prosto pod nogi wkurwionego klienta. Depta cię wielkim buciorem. Jesteś plamą na linoleum. Janusz zmywa cię mopem. Żenada. KONIEC.",
+                image: "🥾",
+                choices: [ { text: "Zacznij jeszcze raz...", next: 1 } ]
+            },
+            25: {
+                text: "Pachniesz tak zmysłowo, że Janusz mdleje. Drzwi do Lombardu otwierają się z buta. Wchodzi królowa auto-tune'a: MAKÓWKA MUSIC! Zauważa cię, porywa z lady i wrzeszczy: 'Zrobię z tobą taki feat, że Oliwka Brazil się zesra!'",
+                image: "🎤",
+                choices: [
+                    { text: "Jedź z Makówką do jej studia w piwnicy.", next: 28 }
+                ]
+            },
+            26: {
+                text: "Jesteś przepiękną Marakują. Godlewskie są w szoku. 'Ona jest ładniejsza od nas! I ma naturalne usta!' - wrzeszczy Esmeralda z wściekłością. W akcie furii wykurwiają cię do pierwszego lepszego kontenera przed studiem nagraniowym.",
+                image: "🗑️",
+                choices: [
+                    { text: "Wyczekuj zbawienia w śmieciach.", next: 28 }
+                ]
+            },
+            27: { // DEATH
+                text: "Toczysz się pod koła przejeżdżającego akurat pociągu towarowego we Wrocławiu. Jesteś idealnie gładkim, cienkim plastrem na torowisku. KONIEC.",
+                image: "🚂",
+                choices: [ { text: "Wróć i znoś ból.", next: 21 } ]
+            },
+            28: {
+                text: "Cudem (lub z woli Makówki) lądujesz w podziemnym studiu muzycznym. Makówka kładzie cię na mikserze, odpala beat i zaczyna rapować o ciężkim życiu owoców. Jest to tak tragiczne, że algorytm TikToka dostaje pierdolca. Track staje się międzynarodowym viralem!",
+                image: "📈",
+                choices: [
+                    { text: "Kąp się w blasku sławy (i chujowej muzy).", next: 29 },
+                    { text: "Tocz się z dala od mikrofonu.", next: 30 }
+                ]
+            },
+            29: {
+                text: "Dzwoni telefon. To nie żart. Na łączach jest amerykański manager. 'Yo, Beyoncé wants that purple fruit energy for her new visual album Cowboy Carter Part 2'. Makówka pakuje was w prywatny odrzutowiec. Lecicie do LA!",
+                image: "✈️",
+                choices: [
+                    { text: "O ja pierdole, lecimy na szczyt!", next: 31 }
+                ]
+            },
+            30: { // DEATH
+                text: "Toczysz się na krawędź i spadasz w gąszcz zaplątanych kabli, zasilaczy z Aliexpress. Robisz zwarcie. Studio płonie. Ty pieczesz się na popiół w imię anty-sztuki. Bohater, ale martwy. KONIEC.",
+                image: "🔥",
+                choices: [ { text: "Wróć do bycia gwiazdą.", next: 28 } ]
+            },
+            31: {
+                text: "Lądujecie w ogromnej willi w Beverly Hills. Wchodzi ONA. Beyoncé. Patrzy na ciebie, zdejmuje kowbojski kapelusz i mówi: 'Listen to me you little fruity bitch. Potrzebuję tej skondensowanej gejowskiej zajebistości, żeby wygrać jebane Grammy. Muszę cię zjeść'.",
+                image: "👑",
+                choices: [
+                    { text: "Zgódź się, poświeć się dla Grammy.", next: 32 },
+                    { text: "Sprzeciw się! 'Mam inną misję, Queen B!'", next: 33 }
+                ]
+            },
+            32: { // ALTERNATE DEATH
+                text: "Pozwalasz, by Beyoncé zrobiła z ciebie sałatkę. Zjadasz zostajesz w 100%. Beyoncé wydaje album dekady, dostaje 10 statuetek, a jej gejowski appeal wywala w kosmos. Wygrałeś branżę, ale no... strawiono cię. Słodko-gorzki KONIEC.",
+                image: "🏆",
+                choices: [ { text: "Zagraj z zamiarem przetrwania!", next: 1 } ]
+            },
+            33: {
+                text: "Wysyłasz telepatyczny przekaz najczystszej aury: 'Beyoncé, zjedzenie mnie to błąd. Muszę zapuścić korzenie tam, gdzie tęcza nigdy nie gaśnie. Wyślij mnie do TUKANOWEJ OSADY'. Beyoncé zaczyna płakać wzruszona.",
+                image: "😭",
+                choices: [
+                    { text: "Czekaj na jej decyzję.", next: 34 }
+                ]
+            },
+            34: {
+                text: "Beyoncé wyciera łzy dolarami. 'You are right, sweet Marakuja. Nie jesteś jedzeniem. Jesteś ideą'. Dzwoni po swój osobisty złoty helikopter. 'Zawieźcie ten owoc prosto w ręce Tukan Barbie' - rozkazuje pilotom.",
+                image: "🚁",
+                choices: [
+                    { text: "Lecisz helikopterem do raju!", next: 35 }
+                ]
+            },
+            35: {
+                text: "Helikopter ląduje z pompą przed ogromnymi, tęczowymi wrotami. Otwierają się. Czeka na ciebie Tukan Barbie, królowa i bogini. 'Wiedziałam, że wrócisz, ty pojebany owocu po przejściach' - uśmiecha się. Wkłada cię delikatnie do platynowej donicy pełnej magicznej, brokatowej ziemi.",
+                image: "💖",
+                choices: [
+                    { text: "PUŚĆ KORZENIE I WYPIERDOL W KOSMOS!", next: 36 }
+                ]
+            },
+            36: { // TRUE ENDING
+                text: "TRUE FUCKING ENDING! Z Marakui wyrasta monstrualne, zajebiście potężne, tęczowe Drzewo Życia. Rodzisz tysiące owoców mango, marakui i arbuzów. Rozdajesz darmowe żelki, a twoje wibracje puszczają całą Tukanową Osadę w ruch. Ela Gawin dostała perma na YT, Godlewskie straciły głos, a ty jesteś absolutnym królem (królową?) tej pato-gejowskiej układanki. WYGRAŁEŚ ŻYCIE!",
+                image: "🎉",
+                choices: [
+                    { text: "Zagraj od nowa (i odwal to samo albo zgiń)", next: 1 }
+                ]
+            }
+        };
+
+        let currentSceneId = 1;
+        let endingsFound = 0;
+        const totalEndings = 10; // Powiększona liczba zakończeń (w tym true end i death-y)
+        let endingsTracked = new Set();
+
+        const domImage = document.getElementById('game-image');
+        const domText = document.getElementById('game-text');
+        const domChoices = document.getElementById('game-choices');
+        const domSceneId = document.getElementById('game-scene-id');
+        const domEndings = document.getElementById('game-endings');
+
+        function renderScene(sceneId) {
+            currentSceneId = sceneId;
+            const scene = gameData[sceneId];
+            
+            // Text and Image animation reset
+            domImage.classList.remove('animate-bounce', 'animate-spin');
+            domText.classList.remove('animate-fade-in-up');
+            void domImage.offsetWidth; 
+            
+            domImage.textContent = scene.image;
+            domText.textContent = scene.text;
+            domSceneId.textContent = sceneId;
+            
+            domImage.classList.add('animate-bounce');
+            domText.classList.add('animate-fade-in-up');
+
+            // Track endings (Reset buttons detection)
+            if(scene.choices[0].text.includes('Zagraj') || scene.choices[0].text.includes('Wróć do') || scene.choices[0].text.includes('Zmartwychwstań') || scene.choices[0].text.includes('Zacznij') || scene.choices[0].text.includes('Restart') || sceneId === 36) {
+                if(!endingsTracked.has(sceneId)) {
+                    endingsTracked.add(sceneId);
+                    endingsFound++;
+                    domEndings.textContent = `${endingsFound}/${totalEndings}`;
+                }
+            }
+
+            // Render Choices
+            domChoices.innerHTML = '';
+            scene.choices.forEach(choice => {
+                const btn = document.createElement('button');
+                btn.className = "game-btn w-full bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600 hover:from-orange-500 hover:via-pink-600 hover:to-purple-700 text-white font-black py-5 px-6 rounded-2xl shadow-lg text-xl text-left flex justify-between items-center";
+                
+                // if it's a reset button
+                if(choice.text.includes('Zagraj') || choice.text.includes('Wróć') || choice.text.includes('Zmartwychwstań') || choice.text.includes('Zacznij') || choice.text.includes('Restart')) {
+                    btn.className = "game-btn w-full bg-slate-800 hover:bg-slate-900 text-white font-black py-5 px-6 rounded-2xl shadow-lg text-xl text-center col-span-1 md:col-span-2 flex justify-center items-center gap-3";
+                    btn.innerHTML = `<i data-lucide="rotate-ccw" class="w-6 h-6"></i> <span>${choice.text}</span>`;
+                } else {
+                    btn.innerHTML = `<span>${choice.text}</span> <i data-lucide="arrow-right" class="w-6 h-6 ml-3 opacity-90 flex-shrink-0"></i>`;
+                }
+
+                btn.onclick = () => renderScene(choice.next);
+                domChoices.appendChild(btn);
+            });
+            
+            lucide.createIcons();
+        }
+
+        // Initialize Game
+        renderScene(1);
+
+    </script>
+</body>
+</html>
+
+
+```
