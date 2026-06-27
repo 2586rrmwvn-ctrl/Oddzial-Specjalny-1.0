@@ -148,7 +148,7 @@
                 <button onclick="navigateTo('home')" class="block w-full text-left px-5 py-4 rounded-xl text-lg font-black text-slate-800 hover:bg-pink-100 border border-transparent active:bg-pink-200">🏠 Strona Główna</button>
                 <button onclick="navigateTo('goldenkowo')" class="block w-full text-left px-5 py-4 rounded-xl text-lg font-black text-slate-800 hover:bg-teal-100 border border-transparent active:bg-teal-200">✨ Goldenkowo</button>
                 <button onclick="navigateTo('tukanowa')" class="block w-full text-left px-5 py-4 rounded-xl text-lg font-black text-orange-600 bg-orange-50 border border-orange-200 active:bg-orange-100">🦜 Tukanowa Osada</button>
-                <button onclick="navigateTo('nikadhd')" class="block w-full text-left px-5 py-4 rounded-xl text-lg font-black text-slate-800 hover:bg-purple-100 border border-transparent active:bg-purple-200">🌪️ Nikadhd-land</button>
+                <button onclick="navigateTo('nikadhd')" class="block w-full text-left px-5 py-4 rounded-xl text-lg font-black text-purple-700 bg-purple-50 hover:bg-purple-100 border-2 border-purple-300 shadow-sm active:bg-purple-200">🌪️ Nikadhd-land</button>
                 <button onclick="navigateTo('despresso')" class="block w-full text-left px-5 py-4 rounded-xl text-lg font-black text-slate-800 hover:bg-gray-200 border border-transparent active:bg-gray-300">☕ Despresso</button>
                 <button onclick="navigateTo('zamek')" class="block w-full text-left px-5 py-4 rounded-xl text-lg font-black text-slate-800 hover:bg-green-100 border border-transparent active:bg-green-200">🏰 Zamek Kariningradu</button>
             </div>
@@ -290,10 +290,10 @@
         <section id="page-goldenkowo" class="page-section hidden"></section>
         <!-- ================= PAGE: NIKADHD-LAND ================= -->
 <!-- ================= PAGE: NIKADHD-LAND ================= -->
+<!-- ================= PAGE: NIKADHD-LAND ================= -->
 <section id="page-nikadhd" class="page-section hidden">
     
     <style>
-        /* Unikalne tło i animacje dla Nika */
         .bg-nikadhd-gradient { background: linear-gradient(-45deg, #4b5563, #7e22ce, #9ca3af, #4c1d95); background-size: 400% 400%; animation: gradientBG 15s ease infinite; }
         .niki-shake { animation: shake 0.5s; }
         .hardcore-shake { animation: shake 0.2s infinite; }
@@ -305,14 +305,13 @@
             80% { transform: translate(-1px, -1px) rotate(1deg); }
             100% { transform: translate(1px, -2px) rotate(-1deg); }
         }
-        /* Custom scrollbar dla suwaków */
         input[type=range]::-webkit-slider-thumb {
             -webkit-appearance: none; appearance: none;
             width: 24px; height: 24px; border-radius: 50%; background: #fff; border: 3px solid currentColor; cursor: pointer; box-shadow: 0 0 10px rgba(0,0,0,0.2);
         }
     </style>
 
-    <!-- 1. HERO -->
+    <!-- HERO -->
     <div class="text-center mb-10 md:mb-16 mt-4 md:mt-8 px-2">
         <h1 class="text-4xl sm:text-6xl md:text-9xl font-black text-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] font-nunito tracking-tighter uppercase mb-4 md:mb-6 relative inline-block">
             <span class="absolute -top-6 -left-6 md:-top-10 md:-left-10 text-5xl md:text-8xl animate-pulse" style="animation-duration: 3s;">🌪️</span>
@@ -324,366 +323,213 @@
         </p>
     </div>
 
-    <!-- 2. GRA: PRZEŻYJ W GŁOWIE NIKA (HARDCORE) -->
-    <div class="w-full max-w-5xl mx-auto glass-panel p-5 md:p-14 shadow-2xl mb-16 border-4 border-purple-400 relative overflow-hidden bg-white/95">
+    <!-- GRA NIKA -->
+    <div class="w-full max-w-5xl mx-auto glass-panel p-3 sm:p-5 md:p-14 shadow-2xl mb-16 border-4 border-purple-400 relative overflow-hidden bg-white/95">
         <div class="absolute top-0 left-0 w-full h-4 md:h-6 bg-gradient-to-r from-red-600 via-purple-600 to-black"></div>
-        <div class="text-center mb-8">
-            <h2 class="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-800 to-red-600 font-nunito uppercase">
-                🧠 Umysł Nika: Wersja HARDCORE
+        <div class="text-center mb-6 md:mb-8 mt-4 md:mt-0">
+            <h2 class="text-2xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-800 to-red-600 font-nunito uppercase">
+                🧠 Umysł Nika
             </h2>
-            <p class="text-slate-700 font-bold mt-3 text-lg bg-red-100 border border-red-300 inline-block px-4 py-2 rounded-xl">11 etapów czystego piekła. Tylko dla graczy z refleksem ninja.</p>
+            <p class="text-slate-700 font-bold mt-2 md:mt-3 text-sm md:text-lg bg-red-100 border border-red-300 inline-block px-3 py-2 rounded-xl">Brak limitu czasu. Liczy się tylko klikanie!</p>
         </div>
         
-        <div id="niki-game-box" class="bg-slate-800 rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-10 shadow-[inset_0_0_50px_rgba(0,0,0,0.5)] min-h-[500px] border-4 border-slate-600 relative flex flex-col items-center justify-center text-center overflow-hidden">
-            <button onclick="startNikiGame()" class="bg-gradient-to-r from-red-600 to-purple-700 text-white font-black px-10 py-5 rounded-2xl text-3xl hover:scale-105 transition shadow-[0_0_30px_rgba(220,38,38,0.6)] border-2 border-red-300 animate-pulse">WEJDŹ W CHAOS</button>
+        <!-- KONTENER GRY (Poprawiony dla komórek) -->
+        <div id="niki-game-box" class="bg-slate-800 text-white rounded-[1.5rem] md:rounded-[2rem] p-4 sm:p-6 md:p-10 shadow-[inset_0_0_30px_rgba(0,0,0,0.5)] min-h-[60vh] md:min-h-[500px] border-4 border-slate-600 relative flex flex-col items-center justify-center text-center overflow-hidden w-full">
+            <button onclick="startNikiGame()" class="bg-gradient-to-r from-red-600 to-purple-700 text-white font-black px-8 py-5 md:px-10 md:py-5 rounded-2xl text-2xl md:text-3xl hover:scale-105 transition shadow-[0_0_30px_rgba(220,38,38,0.6)] border-2 border-red-300 animate-pulse touch-manipulation">WEJDŹ W CHAOS</button>
         </div>
     </div>
 
-    <!-- 3. KARTY RPG WOJOWNIKA NIK -->
+    <!-- KARTY RPG -->
     <div class="max-w-7xl mx-auto mb-16 md:mb-24">
         <div class="text-center mb-10">
             <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-white drop-shadow-md font-nunito uppercase">🃏 Statystyki Wojownika NIK</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
-            <div class="glass-panel p-6 border-t-8 border-red-500 bg-gradient-to-b from-white to-red-50">
-                <div class="text-5xl mb-4">🚑</div>
-                <h4 class="text-xl font-black text-slate-800 uppercase">Medyk Polowy</h4>
-                <p class="text-sm text-slate-600 font-bold mt-2">Uratuje ci życie, a potem rzuci żart, od którego oboje traficie do piekła.</p>
-                <div class="mt-4 bg-slate-200 h-3 rounded-full overflow-hidden"><div class="bg-red-500 h-full w-4/5"></div></div>
-                <p class="text-xs text-right mt-1 font-bold">HP: 80%</p>
-            </div>
-            <div class="glass-panel p-6 border-t-8 border-purple-500 bg-gradient-to-b from-white to-purple-50">
-                <div class="text-5xl mb-4">🛠️</div>
-                <h4 class="text-xl font-black text-slate-800 uppercase">Mistrz DIY</h4>
-                <p class="text-sm text-slate-600 font-bold mt-2">Zbuduje prom kosmiczny z rolek po papierze i kleju na gorąco (tylko o 4:00 rano).</p>
-                <div class="mt-4 bg-slate-200 h-3 rounded-full overflow-hidden"><div class="bg-purple-500 h-full w-full"></div></div>
-                <p class="text-xs text-right mt-1 font-bold">Kreatywność: 100%</p>
-            </div>
-            <div class="glass-panel p-6 border-t-8 border-gray-600 bg-gradient-to-b from-white to-gray-50">
-                <div class="text-5xl mb-4">☕</div>
-                <h4 class="text-xl font-black text-slate-800 uppercase">Wampir Energii</h4>
-                <p class="text-sm text-slate-600 font-bold mt-2">Brak snu to styl życia. Żywi się overthinkingiem, mangami i kofeiną.</p>
-                <div class="mt-4 bg-slate-200 h-3 rounded-full overflow-hidden"><div class="bg-gray-600 h-full w-11/12"></div></div>
-                <p class="text-xs text-right mt-1 font-bold">Kofeina we krwi: 95%</p>
-            </div>
-            <div class="glass-panel p-6 border-t-8 border-pink-400 bg-gradient-to-b from-white to-pink-50">
-                <div class="text-5xl mb-4">🖤</div>
-                <h4 class="text-xl font-black text-slate-800 uppercase">Non-binary Chaos</h4>
-                <p class="text-sm text-slate-600 font-bold mt-2">Czarne poczucie humoru ostre jak skalpel. Odbija ataki tarczą z czystej ironii.</p>
-                <div class="mt-4 bg-slate-200 h-3 rounded-full overflow-hidden"><div class="bg-pink-400 h-full w-full"></div></div>
-                <p class="text-xs text-right mt-1 font-bold">Odporność na B.S.: MAX</p>
-            </div>
+            <div class="glass-panel p-6 border-t-8 border-red-500 bg-gradient-to-b from-white to-red-50"><div class="text-5xl mb-4">🚑</div><h4 class="text-xl font-black text-slate-800 uppercase">Medyk Polowy</h4><p class="text-sm text-slate-600 font-bold mt-2">Uratuje ci życie, a potem rzuci żart, od którego oboje traficie do piekła.</p><div class="mt-4 bg-slate-200 h-3 rounded-full overflow-hidden"><div class="bg-red-500 h-full w-4/5"></div></div><p class="text-xs text-right mt-1 font-bold">HP: 80%</p></div>
+            <div class="glass-panel p-6 border-t-8 border-purple-500 bg-gradient-to-b from-white to-purple-50"><div class="text-5xl mb-4">🛠️</div><h4 class="text-xl font-black text-slate-800 uppercase">Mistrz DIY</h4><p class="text-sm text-slate-600 font-bold mt-2">Zbuduje prom kosmiczny z rolek po papierze i kleju (tylko o 4:00 rano).</p><div class="mt-4 bg-slate-200 h-3 rounded-full overflow-hidden"><div class="bg-purple-500 h-full w-full"></div></div><p class="text-xs text-right mt-1 font-bold">Kreatywność: 100%</p></div>
+            <div class="glass-panel p-6 border-t-8 border-gray-600 bg-gradient-to-b from-white to-gray-50"><div class="text-5xl mb-4">☕</div><h4 class="text-xl font-black text-slate-800 uppercase">Wampir Energii</h4><p class="text-sm text-slate-600 font-bold mt-2">Żywi się overthinkingiem, mangami i kofeiną.</p><div class="mt-4 bg-slate-200 h-3 rounded-full overflow-hidden"><div class="bg-gray-600 h-full w-11/12"></div></div><p class="text-xs text-right mt-1 font-bold">Kofeina we krwi: 95%</p></div>
+            <div class="glass-panel p-6 border-t-8 border-pink-400 bg-gradient-to-b from-white to-pink-50"><div class="text-5xl mb-4">🖤</div><h4 class="text-xl font-black text-slate-800 uppercase">Non-binary Chaos</h4><p class="text-sm text-slate-600 font-bold mt-2">Czarne poczucie humoru ostre jak skalpel. Odbija ataki czystą ironią.</p><div class="mt-4 bg-slate-200 h-3 rounded-full overflow-hidden"><div class="bg-pink-400 h-full w-full"></div></div><p class="text-xs text-right mt-1 font-bold">Odporność na B.S.: MAX</p></div>
         </div>
     </div>
 
-    <!-- 4. TIMELINE WOJOWNIKA -->
+    <!-- OŚ CZASU -->
     <div class="w-full max-w-5xl mx-auto glass-panel p-6 md:p-14 mb-16 border-4 border-gray-400 bg-white/95">
-        <div class="text-center mb-10">
-            <h2 class="text-3xl md:text-5xl font-black text-slate-800 font-nunito uppercase">⏳ Oś Czasu Wojownika</h2>
-        </div>
+        <div class="text-center mb-10"><h2 class="text-3xl md:text-5xl font-black text-slate-800 font-nunito uppercase">⏳ Oś Czasu Wojownika</h2></div>
         <div class="timeline-container timeline-nik py-4">
             <div class="relative w-full mb-10 md:flex md:justify-between md:items-center w-full">
                 <div class="timeline-dot bg-red-500"></div>
                 <div class="md:w-5/12 pl-10 md:pl-0 md:pr-10 md:text-right"><span class="font-black text-red-600 uppercase bg-red-100 px-3 py-1 rounded-xl">Era Dinozaurów</span></div>
-                <div class="md:w-5/12 pl-10 mt-2 md:mt-0">
-                    <div class="timeline-card p-5 border-2 border-red-200"><h3 class="text-xl font-black text-slate-800">Pierwsza Reanimacja 🦕</h3><p class="text-sm text-slate-600 font-medium mt-1">Nik robi RKO zmarzniętemu T-Rexowi. Niestety, dinozaur miał za krótkie rączki, żeby podziękować.</p></div>
-                </div>
+                <div class="md:w-5/12 pl-10 mt-2 md:mt-0"><div class="timeline-card p-5 border-2 border-red-200"><h3 class="text-xl font-black text-slate-800">Pierwsza Reanimacja 🦕</h3><p class="text-sm text-slate-600 font-medium mt-1">Nik robi RKO zmarzniętemu T-Rexowi. Niestety, miał za krótkie rączki, żeby podziękować.</p></div></div>
             </div>
             <div class="relative w-full mb-10 md:flex md:justify-between md:items-center w-full flex-row-reverse">
                 <div class="timeline-dot bg-yellow-500"></div>
-                <div class="md:w-5/12 pl-10 md:pl-0 md:pl-10 md:text-left hidden md:block"><span class="font-black text-yellow-600 uppercase bg-yellow-100 px-3 py-1 rounded-xl">Starożytny Rzym</span></div>
-                <div class="md:w-5/12 pl-10 mt-2 md:mt-0">
-                    <div class="timeline-card p-5 border-2 border-yellow-200 md:text-right"><h3 class="text-xl font-black text-slate-800">Akwedukty DIY 🏛️</h3><p class="text-sm text-slate-600 font-medium mt-1">Podczas bezsennej nocy Nik buduje pierwszy akwedukt z gliny, patyków i antycznego kleju na gorąco.</p></div>
-                </div>
+                <div class="md:w-5/12 pl-10 md:pl-0 md:pl-10 md:text-left hidden md:block"><span class="font-black text-yellow-600 uppercase bg-yellow-100 px-3 py-1 rounded-xl">Rzym</span></div>
+                <div class="md:w-5/12 pl-10 mt-2 md:mt-0"><div class="timeline-card p-5 border-2 border-yellow-200 md:text-right"><h3 class="text-xl font-black text-slate-800">Akwedukty DIY 🏛️</h3><p class="text-sm text-slate-600 font-medium mt-1">Nik buduje akwedukt z gliny, patyków i antycznego kleju na gorąco.</p></div></div>
             </div>
             <div class="relative w-full mb-10 md:flex md:justify-between md:items-center w-full">
                 <div class="timeline-dot bg-purple-500"></div>
                 <div class="md:w-5/12 pl-10 md:pl-0 md:pr-10 md:text-right"><span class="font-black text-purple-600 uppercase bg-purple-100 px-3 py-1 rounded-xl">Średniowiecze</span></div>
-                <div class="md:w-5/12 pl-10 mt-2 md:mt-0">
-                    <div class="timeline-card p-5 border-2 border-purple-200"><h3 class="text-xl font-black text-slate-800">Plague Doctor 🐦‍⬛</h3><p class="text-sm text-slate-600 font-medium mt-1">Uznany/a za maga, bo zamiast pijawek, po prostu dał/a pacjentom pospać i użył/a bandaży.</p></div>
-                </div>
+                <div class="md:w-5/12 pl-10 mt-2 md:mt-0"><div class="timeline-card p-5 border-2 border-purple-200"><h3 class="text-xl font-black text-slate-800">Plague Doctor 🐦‍⬛</h3><p class="text-sm text-slate-600 font-medium mt-1">Dał/a pacjentom pospać zamiast pijawek.</p></div></div>
             </div>
             <div class="relative w-full mb-10 md:flex md:justify-between md:items-center w-full flex-row-reverse">
                 <div class="timeline-dot bg-gray-600"></div>
                 <div class="md:w-5/12 pl-10 md:pl-0 md:pl-10 md:text-left hidden md:block"><span class="font-black text-gray-700 uppercase bg-gray-200 px-3 py-1 rounded-xl">Współczesność</span></div>
-                <div class="md:w-5/12 pl-10 mt-2 md:mt-0">
-                    <div class="timeline-card p-5 border-4 border-gray-400 md:text-right"><h3 class="text-xl font-black text-slate-800">Nocny Marek na Ratunku 🚑</h3><p class="text-sm text-slate-800 font-bold mt-1">Studiuje ratownictwo. Czyta mangi, overthinkuje istnienie i tworzy zajebiste DIY, gdy reszta świata śpi.</p></div>
-                </div>
+                <div class="md:w-5/12 pl-10 mt-2 md:mt-0"><div class="timeline-card p-5 border-4 border-gray-400 md:text-right"><h3 class="text-xl font-black text-slate-800">Medyk 🚑</h3><p class="text-sm text-slate-800 font-bold mt-1">Studiuje ratownictwo. Tworzy zajebiste DIY, gdy reszta świata śpi.</p></div></div>
             </div>
         </div>
     </div>
 
-    <!-- 5. NOWY: KLINICZNY PANEL CHAOSU 2.0 -->
+    <!-- PANEL CHAOSU -->
     <div class="max-w-5xl mx-auto glass-panel p-6 md:p-12 border-4 border-purple-400 relative overflow-hidden bg-white/95 mb-10 shadow-[0_20px_60px_rgba(126,34,206,0.2)]">
         <div class="text-center mb-10">
-            <h3 class="text-3xl md:text-5xl font-black text-slate-800 mb-2 font-nunito uppercase tracking-tighter">Kliniczny Panel Chaosu 2.0</h3>
-            <p class="text-slate-600 font-bold text-lg md:text-xl">Skonfiguruj chemię mózgu Nika i wygeneruj diagnozę na dzisiejszy dyżur.</p>
+            <h3 class="text-3xl md:text-5xl font-black text-slate-800 mb-2 font-nunito uppercase tracking-tighter">Panel Chaosu</h3>
+            <p class="text-slate-600 font-bold text-sm md:text-lg">Skonfiguruj chemię mózgu Nika i sprawdź diagnozę.</p>
         </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <!-- Suwak 1 -->
-            <div class="bg-indigo-50 p-5 rounded-2xl border-2 border-indigo-200 shadow-sm">
-                <label class="flex justify-between font-black text-slate-700 mb-3 text-sm md:text-base">
-                    <span>🛌 Przespane godziny:</span><span class="text-indigo-700 text-xl"><span id="val-sen">4</span> h</span>
-                </label>
-                <input type="range" id="suw-sen" min="0" max="14" value="4" class="w-full h-4 bg-indigo-200 rounded-full text-indigo-600" oninput="obliczDiagnozeNika()">
-            </div>
-            <!-- Suwak 2 -->
-            <div class="bg-amber-50 p-5 rounded-2xl border-2 border-amber-200 shadow-sm">
-                <label class="flex justify-between font-black text-slate-700 mb-3 text-sm md:text-base">
-                    <span>☕ Kofeina (Energy/Kawa):</span><span class="text-amber-700 text-xl"><span id="val-kawa">3</span> dawki</span>
-                </label>
-                <input type="range" id="suw-kawa" min="0" max="15" value="3" class="w-full h-4 bg-amber-200 rounded-full text-amber-600" oninput="obliczDiagnozeNika()">
-            </div>
-            <!-- Suwak 3 -->
-            <div class="bg-red-50 p-5 rounded-2xl border-2 border-red-200 shadow-sm">
-                <label class="flex justify-between font-black text-slate-700 mb-3 text-sm md:text-base">
-                    <span>🤯 Overthinking:</span><span class="text-red-700 text-xl"><span id="val-over">80</span>%</span>
-                </label>
-                <input type="range" id="suw-over" min="0" max="100" step="5" value="80" class="w-full h-4 bg-red-200 rounded-full text-red-600" oninput="obliczDiagnozeNika()">
-            </div>
-            <!-- Suwak 4 -->
-            <div class="bg-pink-50 p-5 rounded-2xl border-2 border-pink-200 shadow-sm">
-                <label class="flex justify-between font-black text-slate-700 mb-3 text-sm md:text-base">
-                    <span>🛠️ Zaczęte DIY (Karton/Klej):</span><span class="text-pink-700 text-xl"><span id="val-diy">2</span> szt.</span>
-                </label>
-                <input type="range" id="suw-diy" min="0" max="20" value="2" class="w-full h-4 bg-pink-200 rounded-full text-pink-600" oninput="obliczDiagnozeNika()">
-            </div>
-            <!-- Suwak 5 -->
-            <div class="bg-blue-50 p-5 rounded-2xl border-2 border-blue-200 shadow-sm">
-                <label class="flex justify-between font-black text-slate-700 mb-3 text-sm md:text-base">
-                    <span>🌐 Otwarte Zakładki w Chrome:</span><span class="text-blue-700 text-xl"><span id="val-zak">150</span></span>
-                </label>
-                <input type="range" id="suw-zak" min="0" max="500" step="10" value="150" class="w-full h-4 bg-blue-200 rounded-full text-blue-600" oninput="obliczDiagnozeNika()">
-            </div>
-            <!-- Suwak 6 -->
-            <div class="bg-green-50 p-5 rounded-2xl border-2 border-green-200 shadow-sm">
-                <label class="flex justify-between font-black text-slate-700 mb-3 text-sm md:text-base">
-                    <span>🍔 Czas od ostatniego posiłku:</span><span class="text-green-700 text-xl"><span id="val-jedz">12</span> h</span>
-                </label>
-                <input type="range" id="suw-jedz" min="0" max="48" value="12" class="w-full h-4 bg-green-200 rounded-full text-green-600" oninput="obliczDiagnozeNika()">
-            </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
+            <div class="bg-indigo-50 p-4 rounded-xl border-2 border-indigo-200"><label class="flex justify-between font-black text-slate-700 mb-3 text-sm"><span>🛌 Sen:</span><span class="text-indigo-700 text-lg"><span id="val-sen">4</span> h</span></label><input type="range" id="suw-sen" min="0" max="14" value="4" class="w-full h-4 bg-indigo-200 rounded-full text-indigo-600" oninput="obliczDiagnozeNika()"></div>
+            <div class="bg-amber-50 p-4 rounded-xl border-2 border-amber-200"><label class="flex justify-between font-black text-slate-700 mb-3 text-sm"><span>☕ Kofeina:</span><span class="text-amber-700 text-lg"><span id="val-kawa">3</span></span></label><input type="range" id="suw-kawa" min="0" max="15" value="3" class="w-full h-4 bg-amber-200 rounded-full text-amber-600" oninput="obliczDiagnozeNika()"></div>
+            <div class="bg-red-50 p-4 rounded-xl border-2 border-red-200"><label class="flex justify-between font-black text-slate-700 mb-3 text-sm"><span>🤯 Overthinking:</span><span class="text-red-700 text-lg"><span id="val-over">80</span>%</span></label><input type="range" id="suw-over" min="0" max="100" step="5" value="80" class="w-full h-4 bg-red-200 rounded-full text-red-600" oninput="obliczDiagnozeNika()"></div>
+            <div class="bg-pink-50 p-4 rounded-xl border-2 border-pink-200"><label class="flex justify-between font-black text-slate-700 mb-3 text-sm"><span>🛠️ Projekty DIY:</span><span class="text-pink-700 text-lg"><span id="val-diy">2</span></span></label><input type="range" id="suw-diy" min="0" max="20" value="2" class="w-full h-4 bg-pink-200 rounded-full text-pink-600" oninput="obliczDiagnozeNika()"></div>
         </div>
-
-        <div class="mt-10 p-6 md:p-10 bg-slate-900 rounded-3xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] border-4 border-slate-700 relative overflow-hidden group">
-            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-green-400 to-transparent animate-pulse"></div>
-            <h4 class="text-green-400 font-black uppercase text-sm mb-4 tracking-widest flex items-center justify-center gap-2">
-                <i data-lucide="activity" class="w-6 h-6"></i> WYDRUK Z KARDIOMONITORA ODDZIAŁU:
-            </h4>
-            <div id="diagnoza-text" class="font-black text-2xl md:text-3xl text-white leading-relaxed text-center min-h-[100px] flex items-center justify-center transition-all duration-300">
-                <!-- Diagnoza -->
-            </div>
+        <div class="mt-8 p-6 bg-slate-900 rounded-2xl border-4 border-slate-700 text-center min-h-[120px] flex items-center justify-center">
+            <div id="diagnoza-text" class="font-black text-xl md:text-2xl text-white"></div>
         </div>
     </div>
 
-    <!-- SKRYPTY LOGIKI NIKA (GRA + PANEL) -->
     <script>
-        // --- 1. LOGIKA PANELU CHAOSU ---
+        // LOGIKA PANELU CHAOSU
         function obliczDiagnozeNika() {
-            const s = parseInt(document.getElementById('suw-sen').value);
-            const k = parseInt(document.getElementById('suw-kawa').value);
-            const o = parseInt(document.getElementById('suw-over').value);
-            const d = parseInt(document.getElementById('suw-diy').value);
-            const z = parseInt(document.getElementById('suw-zak').value);
-            const j = parseInt(document.getElementById('suw-jedz').value);
-
-            document.getElementById('val-sen').innerText = s;
-            document.getElementById('val-kawa').innerText = k;
-            document.getElementById('val-over').innerText = o;
-            document.getElementById('val-diy').innerText = d;
-            document.getElementById('val-zak').innerText = z;
-            document.getElementById('val-jedz').innerText = j;
-
+            const s=parseInt(document.getElementById('suw-sen').value), k=parseInt(document.getElementById('suw-kawa').value), o=parseInt(document.getElementById('suw-over').value), d=parseInt(document.getElementById('suw-diy').value);
+            document.getElementById('val-sen').innerText=s; document.getElementById('val-kawa').innerText=k; document.getElementById('val-over').innerText=o; document.getElementById('val-diy').innerText=d;
             const res = document.getElementById('diagnoza-text');
-            
-            if (s === 0 && k >= 10) {
-                res.innerHTML = "🚨 STAN KRYTYCZNY: Widzisz zagięcia w czasoprzestrzeni. Twój układ nerwowy to w 100% tauryna. Potrafisz zreanimować człowieka jednym spojrzeniem.";
-                res.className = "font-black text-2xl md:text-3xl text-red-500 leading-relaxed text-center animate-pulse drop-shadow-[0_0_15px_rgba(239,68,68,0.8)]";
-            } else if (s >= 10) {
-                res.innerHTML = "🤖 BŁĄD MATRIXA: Osoba z ADHD śpiąca ponad 10 godzin? To nie Nik, to porywacz ciał (Skinwalker). Natychmiast wezwać egzorcystę i polał go Monsterem!";
-                res.className = "font-black text-2xl md:text-3xl text-green-300 leading-relaxed text-center";
-            } else if (o === 100 && z > 300) {
-                res.innerHTML = "🧠 ZESPÓŁ MANIAKALNO-WIKIPEDYCZNY: Jesteś przekonany, że twój kot planuje zamach stanu, więc od 6 godzin czytasz o taktykach wojennych Imperium Osmańskiego.";
-                res.className = "font-black text-2xl md:text-3xl text-pink-400 leading-relaxed text-center";
-            } else if (d > 10 && s < 3) {
-                res.innerHTML = "🛠️ SZAŁ INŻYNIERA: Cały pokój zayebany klejem na gorąco i tekturą. Budujesz replikę karetki w skali 1:1. Zostały ci dwa palce nieprzyklejone do biurka.";
-                res.className = "font-black text-2xl md:text-3xl text-purple-400 leading-relaxed text-center";
-            } else if (j >= 24 && k > 5) {
-                res.innerHTML = "🧟 ZOMBIE MODE: Nie jadłeś od doby, żyjesz tylko dzięki fotosyntezie światła z monitora. Jeśli ktoś cię dotknie, rozsypiesz się w pył kofeinowy.";
-                res.className = "font-black text-2xl md:text-3xl text-amber-500 leading-relaxed text-center";
-            } else if (s >= 6 && s <= 8 && k <= 2 && o < 30 && d === 0 && z < 20) {
-                res.innerHTML = "✨ STABILIZACJA: Jesteś... całkowicie normalny, wypoczęty i zdrowy. Aż rzygać się chce od tej nudy. Szybko, zrób coś głupiego!";
-                res.className = "font-black text-2xl md:text-3xl text-blue-400 leading-relaxed text-center";
-            } else {
-                res.innerHTML = `⚠️ STANDARDOWY PIERDOLNIK: Poziom chaosu stabilnie wysoki. Szansa na wejście na pełną bombę w kolejny bezsensowny projekt wynosi ${Math.min(100, o + d*5 + z/10)}%.`;
-                res.className = "font-black text-2xl md:text-3xl text-yellow-400 leading-relaxed text-center";
-            }
+            if(s===0 && k>=10) { res.innerHTML="🚨 STAN KRYTYCZNY: Widzisz zagięcia w czasoprzestrzeni. Reanimujesz pacjentów wibracją z rąk."; res.className="font-black text-xl md:text-2xl text-red-500 animate-pulse"; }
+            else if(s>=10) { res.innerHTML="🤖 BŁĄD MATRIXA: Spanie 10 godzin? Wezwać egzorcystę, to pułapka!"; res.className="font-black text-xl md:text-2xl text-green-300"; }
+            else if(o===100) { res.innerHTML="🧠 OVERTHINKING MAX: Rozkminiasz dlaczego w 2012 powiedziałeś 'nawzajem' kelnerowi."; res.className="font-black text-xl md:text-2xl text-pink-400"; }
+            else if(d>10) { res.innerHTML="🛠️ SZAŁ INŻYNIERA: Budujesz replikę karetki w skali 1:1. Zostały ci dwa palce nieprzyklejone klejem."; res.className="font-black text-xl md:text-2xl text-purple-400"; }
+            else { res.innerHTML="⚠️ STANDARDOWY PIERDOLNIK: Poziom chaosu stabilnie wysoki. Szansa na nowe DIY rośnie."; res.className="font-black text-xl md:text-2xl text-yellow-400"; }
         }
-        setTimeout(() => { obliczDiagnozeNika(); }, 300); // Init
+        setTimeout(obliczDiagnozeNika, 300);
 
-        // --- 2. SILNIK GRY (Wersja Hardcore) ---
-        let nikiStage = 0, nikiTimer, dopaScore = 0;
-        let gameTimeLeft = 0;
+        // SILNIK GRY (Brak presji czasu, optymalizacja mobile)
+        let nikiStage = 0, nikiTimer;
         const nikiBox = document.getElementById('niki-game-box');
 
         function startNikiGame() { nikiStage = 1; renderNikiStage(); }
 
         function renderNikiStage() {
             clearInterval(nikiTimer);
-            nikiBox.className = 'bg-slate-800 text-white rounded-[2rem] p-6 shadow-[inset_0_0_50px_rgba(0,0,0,0.5)] min-h-[500px] border-4 border-slate-600 relative flex flex-col items-center justify-center text-center overflow-hidden w-full';
+            nikiBox.className = 'bg-slate-800 text-white rounded-[1.5rem] md:rounded-[2rem] p-4 md:p-10 shadow-[inset_0_0_50px_rgba(0,0,0,0.5)] min-h-[60vh] md:min-h-[500px] border-4 border-slate-600 relative flex flex-col items-center justify-center text-center overflow-hidden w-full';
 
             if(nikiStage === 1) {
-                let hits = 0;
-                nikiBox.innerHTML = `<h3 class="text-3xl font-black mb-4 text-purple-400">1. Złap mnie! (x3)</h3><p class="text-gray-400 mb-2">Musisz w niego trafić 3 razy. Masz 10 sekund!</p><div class="text-4xl font-black text-red-500 mb-4" id="t1">10</div><div id="runArea" class="w-full h-72 relative overflow-hidden"><button id="runBtn" class="bg-purple-600 text-white font-black px-6 py-4 rounded-xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-75 text-xl whitespace-nowrap border-2 border-white">Kliknij! (0/3)</button></div>`;
-                gameTimeLeft = 10;
-                nikiTimer = setInterval(()=>{ gameTimeLeft--; document.getElementById('t1').innerText=gameTimeLeft; if(gameTimeLeft<=0){clearInterval(nikiTimer); alert("Za wolno! Wracasz na start."); startNikiGame();} }, 1000);
-                
-                const btn = document.getElementById('runBtn');
-                const moveBtn = () => { btn.style.left = Math.random()*80+10 + '%'; btn.style.top = Math.random()*80+10 + '%'; };
-                btn.ontouchstart = (e) => { e.preventDefault(); moveBtn(); };
-                btn.onmouseover = moveBtn;
-                const hit = () => { hits++; btn.innerText=`Trafiony! (${hits}/3)`; moveBtn(); if(hits>=3){ clearInterval(nikiTimer); nikiStage++; renderNikiStage(); } };
-                btn.onclick = hit; btn.ondblclick = hit;
-            
+                nikiBox.innerHTML = `<h3 class="text-2xl md:text-3xl font-black mb-4 text-purple-400">1. Złap mnie!</h3><p class="text-gray-400 mb-4 text-sm md:text-base">Złap przycisk 3 razy. Bez pośpiechu!</p><div id="runArea" class="w-full h-64 md:h-72 relative overflow-hidden"><button id="runBtn" class="bg-purple-600 text-white font-black px-6 py-4 rounded-xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-lg whitespace-nowrap border-2 border-white shadow-lg touch-manipulation">Kliknij! (0/3)</button></div>`;
+                let hits = 0; const btn = document.getElementById('runBtn');
+                const moveBtn = () => { btn.style.left = Math.random()*60+20 + '%'; btn.style.top = Math.random()*60+20 + '%'; };
+                const hit = (e) => { e.preventDefault(); hits++; btn.innerText=`Trafiony! (${hits}/3)`; moveBtn(); if(hits>=3) { nikiStage++; renderNikiStage(); } };
+                btn.ontouchstart = hit; btn.onmousedown = hit; btn.onmouseover = moveBtn;
+
             } else if(nikiStage === 2) {
-                nikiBox.innerHTML = `<h3 class="text-3xl font-black mb-2 text-red-400">2. Hardcore Prokrastynacja</h3><p class="mb-4 text-gray-300 font-bold">PISZ PRACĘ. IGNORUJ WSZYSTKO PRZEZ 15s!</p><button id="pracaBtn" class="bg-green-600 border-2 border-white text-white font-black px-10 py-5 rounded-xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 hover:scale-110">PISZĘ PRACĘ</button><div id="distractions" class="absolute top-0 left-0 w-full h-full pointer-events-none z-20"></div><div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 font-black text-5xl text-white" id="timer2">15</div>`;
-                let tl = 15;
-                const praca = document.getElementById('pracaBtn');
-                setInterval(()=>{ praca.style.left = Math.random()*60+20+'%'; praca.style.top = Math.random()*60+20+'%'; }, 2000); // Praca ucieka
-                
+                nikiBox.innerHTML = `<h3 class="text-2xl md:text-3xl font-black mb-2 text-red-400">2. Prokrastynacja</h3><p class="mb-4 text-gray-300 font-bold text-sm md:text-base">Złap uciekający przycisk "PISZĘ PRACĘ" 3 razy. Ignoruj resztę!</p><div id="distractions" class="absolute top-0 left-0 w-full h-full pointer-events-none z-20 overflow-hidden"></div><button id="pracaBtn" class="bg-green-600 border-2 border-white text-white font-black px-6 py-4 rounded-xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30 shadow-xl touch-manipulation">PISZĘ PRACĘ (0/3)</button>`;
+                let pracaHits = 0; const praca = document.getElementById('pracaBtn');
+                const movePraca = () => { praca.style.left = Math.random()*50+25+'%'; praca.style.top = Math.random()*60+20+'%'; };
+                praca.onmouseover = movePraca;
+                praca.onmousedown = praca.ontouchstart = (e) => { e.preventDefault(); pracaHits++; praca.innerText = `PISZĘ PRACĘ (${pracaHits}/3)`; movePraca(); if(pracaHits>=3){ clearInterval(nikiTimer); nikiStage++; renderNikiStage(); } };
                 nikiTimer = setInterval(() => {
-                    tl--; document.getElementById('timer2').innerText = tl;
-                    if(tl <= 0) { clearInterval(nikiTimer); nikiStage++; renderNikiStage(); }
                     const btn = document.createElement('button');
-                    btn.className = "bg-red-600 text-white font-black px-4 py-3 rounded-xl absolute pointer-events-auto text-lg border-2 border-white animate-bounce shadow-xl";
-                    btn.style.left = Math.random()*80+10 + '%'; btn.style.top = Math.random()*80+10 + '%';
-                    btn.innerText = ["TikTok!", "KOT!", "Zrób kawę", "MEMY", "YouTube", "Wiki"][Math.floor(Math.random()*6)];
-                    btn.onmousedown = btn.ontouchstart = () => { clearInterval(nikiTimer); alert("Złamałeś się! Od nowa!"); startNikiGame(); };
-                    document.getElementById('distractions').appendChild(btn);
-                    setTimeout(()=> btn.remove(), 1200);
-                }, 600); // Szybki spawn rozpraszaczy
+                    btn.className = "bg-red-600 text-white font-black px-3 py-2 rounded-xl absolute pointer-events-auto text-sm border-2 border-white animate-bounce shadow-xl";
+                    btn.style.left = Math.random()*70+10 + '%'; btn.style.top = Math.random()*70+10 + '%';
+                    btn.innerText = ["TikTok!", "KOT!", "Zrób kawę", "MEMY", "YouTube"][Math.floor(Math.random()*5)];
+                    btn.onmousedown = btn.ontouchstart = (e) => { e.preventDefault(); alert("Złamałeś się! Skup się na pracy."); btn.remove(); };
+                    document.getElementById('distractions').appendChild(btn); setTimeout(()=> btn.remove(), 2000);
+                }, 1000);
 
             } else if(nikiStage === 3) {
-                dopaScore = 0;
-                nikiBox.innerHTML = `<h3 class="text-3xl font-black mb-2 text-green-400">3. Łap Dopaminę!</h3><p class="mb-2 text-sm text-gray-300">Złap 10 ZIELONYCH. Czerwone zabierają -2!</p><div id="ballArea" class="w-full h-72 relative bg-slate-700 rounded-xl overflow-hidden border-2 border-slate-500 shadow-inner"></div><div class="mt-4 font-black text-3xl">Wynik: <span id="ds" class="text-green-400">0</span>/10</div>`;
+                let dopaScore = 0;
+                nikiBox.innerHTML = `<h3 class="text-2xl md:text-3xl font-black mb-2 text-green-400">3. Łap Dopaminę!</h3><p class="mb-2 text-sm text-gray-300">Złap 10 ZIELONYCH. Czerwone zabierają punkty.</p><div id="ballArea" class="w-full h-64 md:h-72 relative bg-slate-700 rounded-xl overflow-hidden border-2 border-slate-500 shadow-inner"></div><div class="mt-4 font-black text-2xl md:text-3xl">Wynik: <span id="ds" class="text-green-400">0</span>/10</div>`;
                 nikiTimer = setInterval(() => {
-                    const isGreen = Math.random() > 0.5;
-                    const ball = document.createElement('div');
-                    ball.className = `w-16 h-16 rounded-full absolute flex items-center justify-center font-black text-sm text-white cursor-pointer border-2 border-white shadow-lg ${isGreen ? 'bg-green-500' : 'bg-red-500'}`;
-                    ball.style.left = Math.random()*80 + '%'; ball.style.top = Math.random()*80 + '%';
+                    const isGreen = Math.random() > 0.4; const ball = document.createElement('div');
+                    ball.className = `w-14 h-14 md:w-16 md:h-16 rounded-full absolute flex items-center justify-center font-black text-xs text-white cursor-pointer border-2 border-white shadow-lg ${isGreen ? 'bg-green-500' : 'bg-red-500'}`;
+                    ball.style.left = Math.random()*70+10 + '%'; ball.style.top = Math.random()*70+10 + '%';
                     ball.innerText = isGreen ? '+1' : '-2';
-                    ball.onmousedown = ball.ontouchstart = (e) => {
-                        e.preventDefault();
-                        if(isGreen) { dopaScore++; if(dopaScore>=10){ clearInterval(nikiTimer); nikiStage++; renderNikiStage(); } }
-                        else { dopaScore -= 2; }
-                        document.getElementById('ds').innerText = dopaScore;
-                        ball.remove();
-                    };
-                    document.getElementById('ballArea').appendChild(ball);
-                    setTimeout(()=> ball.remove(), 1000); // Bardzo szybko znikają
-                }, 500);
+                    ball.onmousedown = ball.ontouchstart = (e) => { e.preventDefault(); if(isGreen) { dopaScore++; if(dopaScore>=10){ clearInterval(nikiTimer); nikiStage++; renderNikiStage(); } } else { dopaScore -= 2; } document.getElementById('ds').innerText = dopaScore; ball.remove(); };
+                    document.getElementById('ballArea').appendChild(ball); setTimeout(()=> ball.remove(), 1200);
+                }, 600);
 
             } else if(nikiStage === 4) {
                 let clicks = 0;
-                nikiBox.innerHTML = `<h3 class="text-3xl font-black mb-4 text-yellow-400">4. Trzecia nad ranem</h3><p class="mb-4 text-gray-300">Musisz zacząć projekt DIY. Kliknij go 5 razy!</p><div id="diyArea" class="w-full h-64 relative"><button class="bg-gray-600 text-gray-400 font-bold px-6 py-4 rounded-xl absolute top-10 left-10">Idź spać</button><button id="diyBtn" class="bg-yellow-500 text-black font-black px-6 py-4 rounded-xl border-2 border-white absolute transition-all duration-100 shadow-xl">Zbuduj czołg z kartonu! (0/5)</button></div>`;
-                const btn = document.getElementById('diyBtn');
-                btn.style.left = "50%"; btn.style.top = "50%";
-                const moveBtn = () => { btn.style.left = Math.random()*70+10 + '%'; btn.style.top = Math.random()*70+10 + '%'; };
-                btn.onmouseover = btn.ontouchstart = (e) => { e.preventDefault(); moveBtn(); };
-                btn.onclick = btn.ondblclick = () => { clicks++; btn.innerText=`Zbuduj czołg z kartonu! (${clicks}/5)`; moveBtn(); if(clicks>=5){ nikiStage++; renderNikiStage(); } };
+                nikiBox.innerHTML = `<h3 class="text-2xl md:text-3xl font-black mb-4 text-yellow-400">4. Trzecia nad ranem</h3><p class="mb-4 text-gray-300 text-sm md:text-base">Musisz zacząć projekt DIY. Kliknij go 5 razy!</p><div id="diyArea" class="w-full h-64 relative overflow-hidden"><button class="bg-gray-600 text-gray-400 font-bold px-4 py-2 rounded-xl absolute top-5 left-5 text-sm">Idź spać</button><button id="diyBtn" class="bg-yellow-500 text-black font-black px-6 py-4 rounded-xl border-2 border-white absolute shadow-xl touch-manipulation">Zbuduj czołg z kartonu! (0/5)</button></div>`;
+                const btn = document.getElementById('diyBtn'); btn.style.left = "40%"; btn.style.top = "50%";
+                const moveBtn = () => { btn.style.left = Math.random()*50+10 + '%'; btn.style.top = Math.random()*60+10 + '%'; };
+                btn.onmouseover = moveBtn;
+                btn.onmousedown = btn.ontouchstart = (e) => { e.preventDefault(); clicks++; btn.innerText=`Zbuduj czołg! (${clicks}/5)`; moveBtn(); if(clicks>=5){ nikiStage++; renderNikiStage(); } };
 
             } else if(nikiStage === 5) {
-                let clk = 0; gameTimeLeft = 8;
-                nikiBox.innerHTML = `<h3 class="text-3xl font-black mb-2 text-pink-400">5. ATAK DOPAMINY</h3><p class="text-red-400 font-black mb-4 text-xl">Wciśnij 40 razy w 8 sekund!</p><div class="text-5xl font-black text-white mb-4" id="t5">8</div><button id="bigDopa" class="bg-gradient-to-r from-pink-500 to-yellow-500 text-white font-black text-4xl px-16 py-16 rounded-full shadow-[0_0_40px_rgba(236,72,153,0.8)] border-4 border-white active:scale-90 transition-transform">KLIK!</button><p class="mt-6 font-black text-xl text-pink-300" id="dopaMsg">Wynik: 0/40</p>`;
-                nikiTimer = setInterval(() => {
-                    gameTimeLeft--; document.getElementById('t5').innerText = gameTimeLeft;
-                    if(gameTimeLeft <= 0) { clearInterval(nikiTimer); alert("Za wolno palce chodzą. Start."); startNikiGame(); }
-                }, 1000);
+                let clk = 0;
+                nikiBox.innerHTML = `<h3 class="text-2xl md:text-3xl font-black mb-2 text-pink-400">5. ATAK DOPAMINY</h3><p class="text-red-400 font-black mb-6 text-sm md:text-xl">Wciśnij 30 razy!</p><button id="bigDopa" class="bg-gradient-to-r from-pink-500 to-yellow-500 text-white font-black text-3xl md:text-4xl px-12 py-12 md:px-16 md:py-16 rounded-full shadow-[0_0_40px_rgba(236,72,153,0.8)] border-4 border-white active:scale-90 transition-transform touch-manipulation">KLIK!</button><p class="mt-6 font-black text-lg md:text-xl text-pink-300" id="dopaMsg">Wynik: 0/30</p>`;
                 document.getElementById('bigDopa').onmousedown = document.getElementById('bigDopa').ontouchstart = (e) => {
                     e.preventDefault(); clk++;
                     nikiBox.classList.add('hardcore-shake'); setTimeout(()=>nikiBox.classList.remove('hardcore-shake'), 50);
-                    document.getElementById('dopaMsg').innerText = `Wynik: ${clk}/40`;
-                    if(clk >= 40) { clearInterval(nikiTimer); nikiStage++; renderNikiStage(); }
+                    document.getElementById('dopaMsg').innerText = `Wynik: ${clk}/30`;
+                    if(clk >= 30) { nikiStage++; renderNikiStage(); }
                 };
 
             } else if(nikiStage === 6) {
-                nikiBox.innerHTML = `<h3 class="text-3xl font-black mb-2 text-blue-400">6. Overthinking w ułamku sekundy</h3><p class="mb-4 text-xl">Napisała: <strong>"Ok."</strong><br>Znajdź racjonalne wyjście w tłumie paranoi!</p><div id="thinkArea" class="w-full h-72 relative border-2 border-slate-600 rounded-xl overflow-hidden bg-slate-900"></div>`;
+                nikiBox.innerHTML = `<h3 class="text-2xl md:text-3xl font-black mb-2 text-blue-400">6. Overthinking</h3><p class="mb-4 text-sm md:text-lg">Ktoś napisał: <strong>"Ok."</strong><br>Znajdź racjonalne wyjście w tłumie paranoi!</p><div id="thinkArea" class="w-full h-72 relative border-2 border-slate-600 rounded-xl overflow-hidden bg-slate-900"></div>`;
                 const area = document.getElementById('thinkArea');
-                // Spam złych przycisków
-                for(let i=0; i<15; i++) {
-                    let b = document.createElement('button');
-                    b.className = "bg-red-900 text-white font-bold p-2 text-xs absolute rounded border border-red-700 opacity-70";
-                    b.style.left = Math.random()*80+'%'; b.style.top = Math.random()*80+'%';
-                    b.innerText = ["Nienawidzi mnie", "Zaraz umrę", "To koniec", "Wszystko zepsułem", "Ona wie"][Math.floor(Math.random()*5)];
-                    b.onclick = () => { alert("Zatonąłeś w myślach! Od nowa."); startNikiGame(); };
+                for(let i=0; i<10; i++) {
+                    let b = document.createElement('div'); b.className = "bg-red-900 text-white font-bold p-2 text-xs absolute rounded border border-red-700 opacity-80";
+                    b.style.left = Math.random()*70+5+'%'; b.style.top = Math.random()*70+5+'%'; b.innerText = ["Nienawidzi mnie", "Zaraz umrę", "To koniec"][Math.floor(Math.random()*3)];
                     area.appendChild(b);
                 }
-                // Jeden dobry
-                let good = document.createElement('button');
-                good.className = "bg-green-500 text-white font-black p-3 absolute rounded-xl border-2 border-white shadow-lg z-20";
-                good.style.left = "40%"; good.style.top = "40%";
-                good.innerText = "Znajdź spokój";
-                good.onmouseover = good.ontouchstart = () => { good.style.left = Math.random()*70+10+'%'; good.style.top = Math.random()*70+10+'%'; };
-                good.onclick = good.ondblclick = () => { nikiStage++; renderNikiStage(); };
+                let good = document.createElement('button'); good.className = "bg-green-500 text-white font-black p-4 absolute rounded-xl border-2 border-white shadow-lg z-20 touch-manipulation";
+                good.style.left = "40%"; good.style.top = "40%"; good.innerText = "Znajdź spokój";
+                good.onmouseover = () => { good.style.left = Math.random()*60+10+'%'; good.style.top = Math.random()*60+10+'%'; };
+                good.onmousedown = good.ontouchstart = (e) => { e.preventDefault(); nikiStage++; renderNikiStage(); };
                 area.appendChild(good);
 
             } else if(nikiStage === 7) {
                 let tabs = 1; let closesReq = 3;
-                nikiBox.innerHTML = `<h3 class="text-3xl font-black mb-2 text-purple-400">7. Bunt Przeglądarki</h3><p class="text-xl">RAM: <span id="tabCount" class="text-5xl font-black text-red-500">1</span>/150</p><p class="text-sm text-gray-400 mb-6">Musisz kliknąć ZAMKNIJ 3 razy. Przyciski uciekają!</p><div id="tabArea" class="w-full h-48 relative"></div>`;
-                nikiTimer = setInterval(() => {
-                    tabs += Math.floor(Math.random() * 20) + 5; 
-                    document.getElementById('tabCount').innerText = tabs;
-                    if(tabs >= 150) { clearInterval(nikiTimer); alert("BŁĄD KRYTYCZNY RAMU! Od nowa."); startNikiGame(); }
-                }, 250);
-                
+                nikiBox.innerHTML = `<h3 class="text-2xl md:text-3xl font-black mb-2 text-purple-400">7. Bunt Przeglądarki</h3><p class="text-lg">RAM: <span id="tabCount" class="text-3xl font-black text-red-500">1</span></p><p class="text-sm text-gray-400 mb-6">Kliknij ZAMKNIJ 3 razy. Przycisk ucieka!</p><div id="tabArea" class="w-full h-48 relative overflow-hidden"></div>`;
+                nikiTimer = setInterval(() => { tabs += Math.floor(Math.random() * 20); document.getElementById('tabCount').innerText = tabs; }, 300);
                 const spawnClose = () => {
                     document.getElementById('tabArea').innerHTML = '';
                     const btn = document.createElement('button');
-                    btn.className = "bg-red-600 text-white font-black px-6 py-3 rounded-xl absolute border-2 border-white shadow-lg";
-                    btn.style.left = Math.random()*60+10+'%'; btn.style.top = Math.random()*60+10+'%';
-                    btn.innerText = `ZAMKNIJ (${3-closesReq} zostało)`;
-                    btn.onclick = () => { closesReq--; if(closesReq<=0) { clearInterval(nikiTimer); nikiStage++; renderNikiStage(); } else { spawnClose(); tabs -= 30; } };
+                    btn.className = "bg-red-600 text-white font-black px-6 py-4 rounded-xl absolute border-2 border-white shadow-lg touch-manipulation";
+                    btn.style.left = Math.random()*50+10+'%'; btn.style.top = Math.random()*50+10+'%'; btn.innerText = `ZAMKNIJ (${3-closesReq} zostało)`;
+                    btn.onmousedown = btn.ontouchstart = (e) => { e.preventDefault(); closesReq--; if(closesReq<=0) { clearInterval(nikiTimer); nikiStage++; renderNikiStage(); } else { spawnClose(); tabs -= 50; } };
                     document.getElementById('tabArea').appendChild(btn);
-                };
-                spawnClose();
+                }; spawnClose();
 
             } else if(nikiStage === 8) {
                 let steps = 5;
-                nikiBox.innerHTML = `<h3 class="text-3xl font-black mb-4 text-cyan-400">8. Rabbit Hole Wikipedii</h3><p class="mb-4">Zacząłeś od sprawdzenia godziny. Jesteś na artykule o mrówkach argentyńskich. Cofnij się 5 razy!</p><div id="wikiArea" class="w-full h-48 relative bg-white rounded-xl text-black flex items-center justify-center font-black text-xl p-4 text-center border-4 border-cyan-500">Czytasz o strukturze ula...</div><div id="btnArea" class="w-full h-24 relative mt-4"></div>`;
+                nikiBox.innerHTML = `<h3 class="text-2xl md:text-3xl font-black mb-4 text-cyan-400">8. Wikipedia</h3><p class="mb-4 text-sm md:text-base">Zacząłeś od sprawdzenia godziny. Czytasz o mrówkach. Cofnij się 5 razy!</p><div id="btnArea" class="w-full h-64 relative mt-4 overflow-hidden border-2 border-slate-600 rounded-xl"></div>`;
                 const area = document.getElementById('btnArea');
                 const langs = ["WSTECZ", "BACK", "ZURÜCK", "ATRAS", "NAZAD"];
                 const spawnWstecz = () => {
-                    area.innerHTML = '';
-                    const b = document.createElement('button');
-                    b.className = "bg-cyan-600 text-white font-black px-8 py-4 rounded-2xl border-2 border-white absolute shadow-xl";
-                    b.style.left = Math.random()*60+'%'; b.style.top = Math.random()*40+'%';
-                    b.innerText = langs[5-steps];
-                    b.onclick = () => { steps--; if(steps<=0){ nikiStage++; renderNikiStage(); } else spawnWstecz(); };
+                    area.innerHTML = ''; const b = document.createElement('button');
+                    b.className = "bg-cyan-600 text-white font-black px-8 py-4 rounded-2xl border-2 border-white absolute shadow-xl touch-manipulation text-xl";
+                    b.style.left = Math.random()*50+10+'%'; b.style.top = Math.random()*60+10+'%'; b.innerText = langs[5-steps];
+                    b.onmousedown = b.ontouchstart = (e) => { e.preventDefault(); steps--; if(steps<=0){ nikiStage++; renderNikiStage(); } else spawnWstecz(); };
                     area.appendChild(b);
-                };
-                spawnWstecz();
+                }; spawnWstecz();
 
             } else if(nikiStage === 9) {
                 let adsLeft = 5;
-                nikiBox.innerHTML = `<h3 class="text-3xl font-black mb-2 text-yellow-400">9. Wirusy i Reklamy</h3><p class="mb-4 text-sm">Zniszcz 5 reklam szybko, bo się odradzają!</p><div id="rpgArea" class="w-full h-64 relative border-4 border-dashed border-red-500 rounded-xl bg-slate-900 overflow-hidden"></div><p class="mt-4 font-black text-2xl text-yellow-400" id="adsMsg">Pozostało: 5</p>`;
+                nikiBox.innerHTML = `<h3 class="text-2xl md:text-3xl font-black mb-2 text-yellow-400">9. Wirusy i Reklamy</h3><p class="mb-4 text-sm">Zniszcz 5 reklam kliknięciem!</p><div id="rpgArea" class="w-full h-64 relative border-4 border-dashed border-red-500 rounded-xl bg-slate-900 overflow-hidden"></div>`;
                 const spawnAd = () => {
                     const ad = document.createElement('button');
-                    ad.className = "bg-yellow-500 border-2 border-white text-black font-black px-4 py-2 absolute rounded-xl text-sm sm:text-lg animate-pulse shadow-lg";
-                    ad.style.left = Math.random()*70 + '%'; ad.style.top = Math.random()*70 + '%';
-                    ad.innerText = "IPHONE ZA DARMO!";
-                    ad.onmousedown = ad.ontouchstart = (e) => { e.preventDefault(); ad.remove(); adsLeft--; document.getElementById('adsMsg').innerText = `Pozostało: ${adsLeft}`; if(adsLeft<=0) { clearInterval(nikiTimer); nikiStage++; renderNikiStage(); } };
+                    ad.className = "bg-yellow-500 border-2 border-white text-black font-black px-4 py-3 absolute rounded-xl text-sm md:text-lg shadow-lg touch-manipulation animate-pulse";
+                    ad.style.left = Math.random()*50+10 + '%'; ad.style.top = Math.random()*60+10 + '%'; ad.innerText = "IPHONE ZA DARMO!";
+                    ad.onmousedown = ad.ontouchstart = (e) => { e.preventDefault(); ad.remove(); adsLeft--; if(adsLeft<=0) { nikiStage++; renderNikiStage(); } };
                     document.getElementById('rpgArea').appendChild(ad);
                 };
-                // Spam reklam
-                for(let i=0; i<3; i++) spawnAd();
-                nikiTimer = setInterval(() => { if(adsLeft > 0) { spawnAd(); adsLeft++; document.getElementById('adsMsg').innerText = `Pozostało: ${adsLeft}`; } }, 800);
+                for(let i=0; i<5; i++) spawnAd();
 
             } else if(nikiStage === 10) {
-                nikiBox.innerHTML = `<h3 class="text-3xl font-black mb-2 text-orange-400">10. Ostateczny Multitasking</h3><p class="text-sm mb-4">Zaznacz wszystkie boxy naraz. Szybko, bo puszczają!</p><div class="flex flex-col gap-5 items-start mx-auto w-64 bg-slate-700 p-6 rounded-2xl border-2 border-slate-500" id="checkList"><label class="flex items-center gap-4 font-black text-lg text-white"><input type="checkbox" class="w-8 h-8 task-chk accent-orange-500"> Kipi mleko</label><label class="flex items-center gap-4 font-black text-lg text-white"><input type="checkbox" class="w-8 h-8 task-chk accent-orange-500"> Dzwoni kurier</label><label class="flex items-center gap-4 font-black text-lg text-white"><input type="checkbox" class="w-8 h-8 task-chk accent-orange-500"> Płonie PC</label><label class="flex items-center gap-4 font-black text-lg text-white"><input type="checkbox" class="w-8 h-8 task-chk accent-orange-500"> Kot rzyga</label></div>`;
+                nikiBox.innerHTML = `<h3 class="text-2xl md:text-3xl font-black mb-2 text-orange-400">10. Multitasking</h3><p class="text-sm md:text-base mb-4">Zaznacz wszystkie boxy naraz. Szybko, bo puszczają!</p><div class="flex flex-col gap-4 items-start mx-auto w-full max-w-[250px] bg-slate-700 p-6 rounded-2xl border-2 border-slate-500" id="checkList"><label class="flex items-center gap-4 font-black text-lg text-white w-full"><input type="checkbox" class="w-8 h-8 task-chk accent-orange-500"> Kipi mleko</label><label class="flex items-center gap-4 font-black text-lg text-white w-full"><input type="checkbox" class="w-8 h-8 task-chk accent-orange-500"> Dzwoni kurier</label><label class="flex items-center gap-4 font-black text-lg text-white w-full"><input type="checkbox" class="w-8 h-8 task-chk accent-orange-500"> Płonie PC</label><label class="flex items-center gap-4 font-black text-lg text-white w-full"><input type="checkbox" class="w-8 h-8 task-chk accent-orange-500"> Kot rzyga</label></div>`;
                 nikiTimer = setInterval(() => {
                     const checks = document.querySelectorAll('.task-chk');
                     checks[Math.floor(Math.random() * checks.length)].checked = false; 
-                }, 400); // Ekstremalnie szybko
+                }, 600);
                 nikiBox.addEventListener('change', () => {
                     const checks = document.querySelectorAll('.task-chk');
                     let ok = true; checks.forEach(c => { if(!c.checked) ok = false; });
@@ -691,24 +537,14 @@
                 });
 
             } else if(nikiStage === 11) {
-                // BOSS FIGHT
                 let bossTime = 0;
-                nikiBox.innerHTML = `<h3 class="text-4xl font-black mb-4 text-red-500 uppercase tracking-widest">11. BOSS: Sen</h3><p class="text-xl font-bold mb-6">Wciśnij i TRZYMAJ przycisk przez 3 sekundy, żeby zasnąć. Nie puszczaj ani nie zjeżdżaj palcem!</p><button id="bossBtn" class="bg-slate-900 border-4 border-red-500 text-red-500 font-black text-3xl px-12 py-8 rounded-3xl shadow-[0_0_50px_rgba(239,68,68,0.5)] transition-colors select-none">ZAMKNIJ OCZY</button><div class="w-full h-6 bg-slate-700 rounded-full mt-8 overflow-hidden border-2 border-slate-500"><div id="bossBar" class="h-full bg-red-500 w-0 transition-all duration-100"></div></div><p id="bossMsg" class="mt-4 font-black text-xl text-yellow-400 min-h-[2rem]"></p>`;
-                
-                const bBtn = document.getElementById('bossBtn');
-                const bBar = document.getElementById('bossBar');
-                const bMsg = document.getElementById('bossMsg');
+                nikiBox.innerHTML = `<h3 class="text-3xl md:text-4xl font-black mb-4 text-red-500 uppercase tracking-widest">11. BOSS: Sen</h3><p class="text-sm md:text-lg font-bold mb-6">Wciśnij i TRZYMAJ przycisk przez 3 sekundy, żeby zasnąć!</p><button id="bossBtn" class="bg-slate-900 border-4 border-red-500 text-red-500 font-black text-2xl md:text-3xl px-8 py-6 md:px-12 md:py-8 rounded-3xl shadow-[0_0_50px_rgba(239,68,68,0.5)] transition-colors select-none touch-manipulation">ZAMKNIJ OCZY</button><div class="w-full max-w-sm h-6 bg-slate-700 rounded-full mt-8 overflow-hidden border-2 border-slate-500"><div id="bossBar" class="h-full bg-red-500 w-0 transition-all duration-100"></div></div><p id="bossMsg" class="mt-4 font-black text-lg md:text-xl text-yellow-400 min-h-[2rem]"></p>`;
+                const bBtn = document.getElementById('bossBtn'); const bBar = document.getElementById('bossBar'); const bMsg = document.getElementById('bossMsg');
                 
                 const startSleep = (e) => {
-                    e.preventDefault();
-                    bossTime = 0;
-                    bBtn.classList.replace('bg-slate-900', 'bg-red-900');
-                    bBtn.classList.replace('text-red-500', 'text-white');
-                    bBtn.innerText = "TRZYMAJ...";
-                    bMsg.innerText = "Ignoruj świat...";
+                    e.preventDefault(); bossTime = 0; bBtn.classList.replace('bg-slate-900', 'bg-red-900'); bBtn.classList.replace('text-red-500', 'text-white'); bBtn.innerText = "TRZYMAJ..."; bMsg.innerText = "Ignoruj świat...";
                     nikiTimer = setInterval(() => {
-                        bossTime += 10;
-                        bBar.style.width = (bossTime / 300) * 100 + '%';
+                        bossTime += 10; bBar.style.width = (bossTime / 300) * 100 + '%';
                         if(bossTime === 100) bMsg.innerText = "Przypominasz sobie żenadę z 2015...";
                         if(bossTime === 200) bMsg.innerText = "Mózg: 'A może zbudujemy szafkę?'";
                         if(bossTime >= 300) { clearInterval(nikiTimer); nikiStage++; renderNikiStage(); }
@@ -716,27 +552,18 @@
                 };
                 
                 const stopSleep = (e) => {
-                    e.preventDefault();
                     clearInterval(nikiTimer);
                     if(bossTime > 0 && bossTime < 300) {
-                        bossTime = 0; bBar.style.width = '0%';
-                        bBtn.classList.replace('bg-red-900', 'bg-slate-900');
-                        bBtn.classList.replace('text-white', 'text-red-500');
-                        bBtn.innerText = "ZAMKNIJ OCZY";
-                        bMsg.innerText = "Przerwałeś! Znowu myślisz! OD NOWA!";
-                        nikiBox.classList.add('niki-shake'); setTimeout(()=>nikiBox.classList.remove('niki-shake'), 300);
+                        bossTime = 0; bBar.style.width = '0%'; bBtn.classList.replace('bg-red-900', 'bg-slate-900'); bBtn.classList.replace('text-white', 'text-red-500'); bBtn.innerText = "ZAMKNIJ OCZY"; bMsg.innerText = "Przerwałeś! Od nowa!"; nikiBox.classList.add('hardcore-shake'); setTimeout(()=>nikiBox.classList.remove('hardcore-shake'), 300);
                     }
                 };
-
-                bBtn.addEventListener('mousedown', startSleep);
-                bBtn.addEventListener('touchstart', startSleep);
-                window.addEventListener('mouseup', stopSleep); // Nasłuch na window, jak ucieknie myszką
-                window.addEventListener('touchend', stopSleep);
+                bBtn.addEventListener('mousedown', startSleep); bBtn.addEventListener('touchstart', startSleep);
+                window.addEventListener('mouseup', stopSleep); window.addEventListener('touchend', stopSleep);
 
             } else if(nikiStage === 12) {
                 if(typeof confetti !== 'undefined') confetti({ particleCount: 250, spread: 120, origin: { y: 0.5 }, colors: ['#ff0000', '#8b5cf6', '#ffffff'] });
-                nikiBox.className = 'bg-gradient-to-br from-purple-800 to-slate-900 rounded-[2rem] p-8 shadow-[0_0_80px_rgba(168,85,247,0.8)] min-h-[400px] border-4 border-purple-400 relative flex flex-col items-center justify-center text-center';
-                nikiBox.innerHTML = `<h3 class="text-4xl md:text-6xl font-black text-white drop-shadow-md mb-6 uppercase">ZASŁĄŁEŚ!</h3><div class="text-8xl mb-6 drop-shadow-2xl animate-bounce">🏆</div><p class="text-lg md:text-xl font-bold text-slate-900 bg-white/90 px-8 py-6 rounded-3xl shadow-inner border-2 border-purple-300">Pokonałeś własny mózg (na kilka godzin). <br><strong class="text-2xl text-purple-700 mt-3 block">Zdobywasz: Złotą Kroplówkę z Melatoniną i 4 sekundy wewnętrznego spokoju.</strong></p><button onclick="startNikiGame()" class="mt-10 bg-gradient-to-r from-red-600 to-purple-600 text-white font-black px-10 py-5 rounded-2xl text-2xl hover:scale-110 shadow-lg border-2 border-white transition-transform">GRAJ PONOWNIE</button>`;
+                nikiBox.className = 'bg-gradient-to-br from-purple-800 to-slate-900 rounded-[2rem] p-6 md:p-8 shadow-[0_0_80px_rgba(168,85,247,0.8)] min-h-[60vh] md:min-h-[500px] border-4 border-purple-400 relative flex flex-col items-center justify-center text-center w-full';
+                nikiBox.innerHTML = `<h3 class="text-4xl md:text-6xl font-black text-white drop-shadow-md mb-6 uppercase">ZASNĄŁEŚ!</h3><div class="text-7xl md:text-8xl mb-6 drop-shadow-2xl animate-bounce">🏆</div><p class="text-sm md:text-lg font-bold text-slate-900 bg-white/90 px-6 py-5 rounded-3xl shadow-inner border-2 border-purple-300">Pokonałeś własny mózg (na kilka godzin). <br><strong class="text-xl md:text-2xl text-purple-700 mt-3 block">Zdobywasz: Złotą Kroplówkę z Melatoniną i 4 sekundy spokoju.</strong></p><button onclick="startNikiGame()" class="mt-8 bg-gradient-to-r from-red-600 to-purple-600 text-white font-black px-8 py-4 rounded-2xl text-xl md:text-2xl hover:scale-110 shadow-lg border-2 border-white transition-transform touch-manipulation">GRAJ PONOWNIE</button>`;
             }
         }
     </script>
